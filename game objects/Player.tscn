@@ -20,4 +20,6 @@ shape = SubResource("CircleShape2D_5j3po")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=253575685]
 shape = SubResource("SegmentShape2D_5j3po")
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1185294471]
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1322454913]
