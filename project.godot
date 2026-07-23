@@ -11,5 +11,5 @@ config_version=5
 [application]
 
 config/name="GMTK2026_StudioDiverge"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.8", "Forward Plus")
 config/icon="res://icon.svg"
