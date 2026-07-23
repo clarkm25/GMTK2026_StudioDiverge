@@ -22,3 +22,7 @@ folder_colors={
 "res://game objects/": "blue",
 "res://game/": "green"
 }
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

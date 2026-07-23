@@ -1,3 +1,26 @@
-[gd_scene format=3 uid="uid://bwk10ipc6gbl2"]
+[gd_scene format=4 uid="uid://bwk10ipc6gbl2"]
+
+[ext_resource type="Texture2D" uid="uid://iq0xg7h4mv5d" path="res://assets/space_background_variation1.png" id="1_2o28a"]
+[ext_resource type="Texture2D" uid="uid://blp73apq1vbj0" path="res://assets/space_background_variation2.png" id="2_8gaax"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8gaax"]
+texture = ExtResource("1_2o28a")
+texture_region_size = Vector2i(512, 512)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2fjjk"]
+texture = ExtResource("2_8gaax")
+texture_region_size = Vector2i(512, 512)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_alqjt"]
+tile_size = Vector2i(512, 512)
+sources/6 = SubResource("TileSetAtlasSource_8gaax")
+sources/7 = SubResource("TileSetAtlasSource_2fjjk")
 
 [node name="Main" type="Node2D" unique_id=1078661697]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=849648690]
+position = Vector2(-7.935, 0)
+tile_map_data = PackedByteArray("AAAAAAAABgAAAAAAAAACAAAABgAAAAAAAAACAAEABgAAAAAAAAABAAEABgAAAAAAAAAAAAEABgAAAAAAAAD//wEABgAAAAAAAAD//wAABgAAAAAAAAD/////BwAAAAAAAFAAAP//BgAAAAAAAAABAP//BgAAAAAAAAACAP//BgAAAAAAAAABAAAABwAAAAAAAAA=")
+tile_set = SubResource("TileSet_alqjt")
