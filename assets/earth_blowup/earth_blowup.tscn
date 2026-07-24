@@ -139,7 +139,7 @@ animations = [{
 }]
 
 [node name="EarthBlowup" type="AnimatedSprite2D" unique_id=1146248922]
-scale = Vector2(2, 2)
+position = Vector2(33, 16)
 sprite_frames = SubResource("SpriteFrames_821mi")
 autoplay = "default"
 frame = 31
