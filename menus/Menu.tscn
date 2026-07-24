@@ -2,47 +2,73 @@
 
 [ext_resource type="Script" uid="uid://bv2ja00amryui" path="res://menus/menu.gd" id="1_gdhhp"]
 [ext_resource type="PackedScene" uid="uid://drl77ec7v0xvo" path="res://menus/FadeTransition.tscn" id="2_8djp2"]
+[ext_resource type="PackedScene" uid="uid://dvvwk5i17yrcb" path="res://menus/Options.tscn" id="3_8djp2"]
+[ext_resource type="AudioStream" uid="uid://dh2q35b5nvjp4" path="res://menus/ambient_space_looped.tres" id="4_jv27f"]
 
-[node name="Menu" type="Node2D" unique_id=1920379824]
+[node name="Menu" type="Control" unique_id=426395188]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_gdhhp")
 
-[node name="ButtonManager" type="Control" parent="." unique_id=865546158]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="ButtonManager" type="VBoxContainer" parent="." unique_id=665016663]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -71.5
+offset_right = 35.0
+offset_bottom = 71.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
 
 [node name="Start" type="Button" parent="ButtonManager" unique_id=1993655254]
-layout_mode = 0
-offset_left = 299.0
-offset_top = 113.0
-offset_right = 345.0
-offset_bottom = 144.0
+layout_mode = 2
 text = "Start"
 
 [node name="Options" type="Button" parent="ButtonManager" unique_id=867611182]
-layout_mode = 0
-offset_left = 287.0
-offset_top = 170.0
-offset_right = 357.0
-offset_bottom = 201.0
+layout_mode = 2
 text = "Options"
 
 [node name="Quit" type="Button" parent="ButtonManager" unique_id=232390849]
-layout_mode = 0
-offset_left = 302.0
-offset_top = 227.0
-offset_right = 344.0
-offset_bottom = 258.0
+layout_mode = 2
 text = "Quit"
 
 [node name="FadeTransition" parent="." unique_id=1486688309 instance=ExtResource("2_8djp2")]
-unique_name_in_owner = true
 visible = false
 z_index = 1
+layout_mode = 0
+mouse_filter = 2
 
 [node name="FadeTimer" type="Timer" parent="FadeTransition" unique_id=1811103031]
 wait_time = 1.5
+
+[node name="Options" parent="." unique_id=1237982053 instance=ExtResource("3_8djp2")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -150.0
+offset_right = 150.0
+offset_bottom = 150.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=973437073]
+stream = ExtResource("4_jv27f")
+autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="ButtonManager/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="ButtonManager/Options" to="." method="_on_options_pressed"]

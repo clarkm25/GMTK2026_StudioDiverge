@@ -3,7 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://iq0xg7h4mv5d" path="res://assets/space_background_variation1.png" id="1_2o28a"]
 [ext_resource type="Script" uid="uid://blypotl47w558" path="res://game/main.gd" id="1_ljq5a"]
 [ext_resource type="Texture2D" uid="uid://blp73apq1vbj0" path="res://assets/space_background_variation2.png" id="2_8gaax"]
+[ext_resource type="PackedScene" uid="uid://dvvwk5i17yrcb" path="res://menus/Options.tscn" id="4_ljq5a"]
+[ext_resource type="PackedScene" uid="uid://drl77ec7v0xvo" path="res://menus/FadeTransition.tscn" id="4_madmh"]
 [ext_resource type="PackedScene" uid="uid://bw7mb5rkhhdkk" path="res://game objects/Player.tscn" id="5_madmh"]
+[ext_resource type="AudioStream" uid="uid://dcb8y5g8j8ujk" path="res://assets/surreal_space.wav" id="7_fk7ia"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8gaax"]
 texture = ExtResource("1_2o28a")
@@ -29,3 +32,31 @@ tile_map_data = PackedByteArray("AAAAAAAABgAAAAAAAAACAAAABgAAAAAAAAACAAEABgAAAAA
 tile_set = SubResource("TileSet_alqjt")
 
 [node name="CharacterBody2D" parent="." unique_id=325630486 instance=ExtResource("5_madmh")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=319405524]
+
+[node name="Control" type="CenterContainer" parent="CanvasLayer" unique_id=486035342]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Options" parent="CanvasLayer/Control" unique_id=420492217 instance=ExtResource("4_ljq5a")]
+visible = false
+layout_mode = 2
+
+[node name="FadeTransition" parent="CanvasLayer/Control" unique_id=1486688309 instance=ExtResource("4_madmh")]
+visible = false
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/Control" unique_id=54214621]
+process_mode = 3
+stream = ExtResource("7_fk7ia")
+volume_db = -10.704
+autoplay = true
+bus = &"Music"
