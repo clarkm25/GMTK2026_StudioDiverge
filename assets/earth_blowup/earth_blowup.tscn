@@ -1,0 +1,148 @@
+[gd_scene format=3 uid="uid://ccnce0h7h3a3u"]
+
+[ext_resource type="Texture2D" uid="uid://dep8ygsoqg1aj" path="res://assets/earth_blowup/earth_blowup1.png" id="1_f6vjx"]
+[ext_resource type="Texture2D" uid="uid://lg4oofy5hy6p" path="res://assets/earth_blowup/earth_blowup2.png" id="2_5cbmj"]
+[ext_resource type="Texture2D" uid="uid://bjrew4ib61d70" path="res://assets/earth_blowup/earth_blowup3.png" id="3_ds36x"]
+[ext_resource type="Texture2D" uid="uid://bmdo3m83j2t5q" path="res://assets/earth_blowup/earth_blowup4.png" id="4_7d1fb"]
+[ext_resource type="Texture2D" uid="uid://bmlcb6mm2xenq" path="res://assets/earth_blowup/earth_blowup5.png" id="5_vdq7u"]
+[ext_resource type="Texture2D" uid="uid://b7ls5hjoemf2b" path="res://assets/earth_blowup/earth_blowup6.png" id="6_fjw8w"]
+[ext_resource type="Texture2D" uid="uid://cgcvp046b4dkb" path="res://assets/earth_blowup/earth_blowup7.png" id="7_vi8u6"]
+[ext_resource type="Texture2D" uid="uid://dcbcrutfyyujm" path="res://assets/earth_blowup/earth_blowup8.png" id="8_vkyew"]
+[ext_resource type="Texture2D" uid="uid://cudps7ejd0s2i" path="res://assets/earth_blowup/earth_blowup9.png" id="9_xcleb"]
+[ext_resource type="Texture2D" uid="uid://bkjyd44ae5s23" path="res://assets/earth_blowup/earth_blowup10.png" id="10_kptae"]
+[ext_resource type="Texture2D" uid="uid://5yxw4gh3us4b" path="res://assets/earth_blowup/earth_blowup11.png" id="11_0dfsf"]
+[ext_resource type="Texture2D" uid="uid://2pbckl7tk2vu" path="res://assets/earth_blowup/earth_blowup12.png" id="12_ssy4h"]
+[ext_resource type="Texture2D" uid="uid://lg22dwandr1n" path="res://assets/earth_blowup/earth_blowup13.png" id="13_ud2i3"]
+[ext_resource type="Texture2D" uid="uid://c5qflqy2brh63" path="res://assets/earth_blowup/earth_blowup14.png" id="14_hnkuc"]
+[ext_resource type="Texture2D" uid="uid://d4nhdok612phu" path="res://assets/earth_blowup/earth_blowup15.png" id="15_n414h"]
+[ext_resource type="Texture2D" uid="uid://ch8w5hvmuy4l8" path="res://assets/earth_blowup/earth_blowup16.png" id="16_26d5u"]
+[ext_resource type="Texture2D" uid="uid://bca26fvwb40vi" path="res://assets/earth_blowup/earth_blowup17.png" id="17_d67jq"]
+[ext_resource type="Texture2D" uid="uid://l5a5a8bmqrwx" path="res://assets/earth_blowup/earth_blowup18.png" id="18_ttngl"]
+[ext_resource type="Texture2D" uid="uid://y0q3m35nfnes" path="res://assets/earth_blowup/earth_blowup19.png" id="19_vjuub"]
+[ext_resource type="Texture2D" uid="uid://cyouahoneg741" path="res://assets/earth_blowup/earth_blowup20.png" id="20_gqv3p"]
+[ext_resource type="Texture2D" uid="uid://cug6mkxtponbl" path="res://assets/earth_blowup/earth_blowup21.png" id="21_u8sdo"]
+[ext_resource type="Texture2D" uid="uid://dufyebchc8t46" path="res://assets/earth_blowup/earth_blowup22.png" id="22_je1n4"]
+[ext_resource type="Texture2D" uid="uid://doxydbmwyuk0w" path="res://assets/earth_blowup/earth_blowup23.png" id="23_7n1jc"]
+[ext_resource type="Texture2D" uid="uid://br40rbom025my" path="res://assets/earth_blowup/earth_blowup24.png" id="24_j04c1"]
+[ext_resource type="Texture2D" uid="uid://b7mohtbiwmjrf" path="res://assets/earth_blowup/earth_blowup25.png" id="25_bh7wa"]
+[ext_resource type="Texture2D" uid="uid://ctdy5e8v3kfim" path="res://assets/earth_blowup/earth_blowup26.png" id="26_863ax"]
+[ext_resource type="Texture2D" uid="uid://boop0uafkwrr7" path="res://assets/earth_blowup/earth_blowup27.png" id="27_i4g8f"]
+[ext_resource type="Texture2D" uid="uid://broogxeel5kfw" path="res://assets/earth_blowup/earth_blowup28.png" id="28_s4s42"]
+[ext_resource type="Texture2D" uid="uid://s7dv6lj37j4e" path="res://assets/earth_blowup/earth_blowup29.png" id="29_rvsg0"]
+[ext_resource type="Texture2D" uid="uid://i3rm4e75cbot" path="res://assets/earth_blowup/earth_blowup30.png" id="30_xctye"]
+[ext_resource type="Texture2D" uid="uid://bollhnpi648qi" path="res://assets/earth_blowup/earth_blowup31.png" id="31_b7ao4"]
+[ext_resource type="Texture2D" uid="uid://chpqeg3y11q2n" path="res://assets/earth_blowup/earth_blowup32.png" id="32_nujw5"]
+[ext_resource type="Script" uid="uid://cqt3ix6x5dvru" path="res://assets/earth_blowup/earth_blowup.gd" id="33_5cbmj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_821mi"]
+animations = [{
+"frames": [{
+"duration": 25.0,
+"texture": ExtResource("1_f6vjx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_5cbmj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ds36x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7d1fb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_vdq7u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fjw8w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_vi8u6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_vkyew")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_xcleb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_kptae")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_0dfsf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ssy4h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ud2i3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_hnkuc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_n414h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_26d5u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_d67jq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_ttngl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_vjuub")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_gqv3p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_u8sdo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_je1n4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_7n1jc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_j04c1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_bh7wa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_863ax")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_i4g8f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_s4s42")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_rvsg0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_xctye")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_b7ao4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_nujw5")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="EarthBlowup" type="AnimatedSprite2D" unique_id=1146248922]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_821mi")
+autoplay = "default"
+frame = 31
+frame_progress = 1.0
+offset = Vector2(288, 162)
+script = ExtResource("33_5cbmj")

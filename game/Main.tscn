@@ -1,7 +1,10 @@
 [gd_scene format=4 uid="uid://bwk10ipc6gbl2"]
 
 [ext_resource type="Texture2D" uid="uid://iq0xg7h4mv5d" path="res://assets/space_background_variation1.png" id="1_2o28a"]
+[ext_resource type="Script" uid="uid://drxjgs2lbrl1e" path="res://game/Game.gd" id="1_madmh"]
 [ext_resource type="Texture2D" uid="uid://blp73apq1vbj0" path="res://assets/space_background_variation2.png" id="2_8gaax"]
+[ext_resource type="Script" uid="uid://ig2kct7r4oee" path="res://game/debug_ui.gd" id="4_yo8gm"]
+[ext_resource type="Theme" uid="uid://cda6hhwjgk6fx" path="res://assets/debug_ui_theme.tres" id="5_fk7ia"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8gaax"]
 texture = ExtResource("1_2o28a")
@@ -18,9 +21,102 @@ tile_size = Vector2i(512, 512)
 sources/6 = SubResource("TileSetAtlasSource_8gaax")
 sources/7 = SubResource("TileSetAtlasSource_2fjjk")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_alqjt"]
+bg_color = Color(0.26666668, 0.26666668, 0.26666668, 0.7411765)
+
 [node name="Main" type="Node2D" unique_id=1078661697]
+script = ExtResource("1_madmh")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=849648690]
 position = Vector2(-7.935, 0)
 tile_map_data = PackedByteArray("AAAAAAAABgAAAAAAAAACAAAABgAAAAAAAAACAAEABgAAAAAAAAABAAEABgAAAAAAAAAAAAEABgAAAAAAAAD//wEABgAAAAAAAAD//wAABgAAAAAAAAD/////BwAAAAAAAFAAAP//BgAAAAAAAAABAP//BgAAAAAAAAACAP//BgAAAAAAAAABAAAABwAAAAAAAAA=")
 tile_set = SubResource("TileSet_alqjt")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1580460673]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="DebugUI" type="GridContainer" parent="VBoxContainer" unique_id=1710444227]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 12
+columns = 3
+script = ExtResource("4_yo8gm")
+
+[node name="DebugButtons" type="HBoxContainer" parent="VBoxContainer/DebugUI" unique_id=1374654344]
+layout_mode = 2
+
+[node name="DebugAmountChange" type="LineEdit" parent="VBoxContainer/DebugUI/DebugButtons" unique_id=405028279]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("5_fk7ia")
+placeholder_text = "Amount to add..."
+
+[node name="DebugSpeedChange" type="Button" parent="VBoxContainer/DebugUI/DebugButtons" unique_id=1999921183]
+layout_mode = 2
+theme = ExtResource("5_fk7ia")
+text = "+Speed"
+
+[node name="DebugAccelChange" type="Button" parent="VBoxContainer/DebugUI/DebugButtons" unique_id=657410042]
+layout_mode = 2
+theme = ExtResource("5_fk7ia")
+text = "+Accel"
+
+[node name="DebugDistanceChange" type="Button" parent="VBoxContainer/DebugUI/DebugButtons" unique_id=1249177535]
+layout_mode = 2
+theme = ExtResource("5_fk7ia")
+text = "+Distance"
+
+[node name="DebugDisplay" type="HBoxContainer" parent="VBoxContainer/DebugUI" unique_id=1059363655]
+layout_mode = 2
+
+[node name="SpeedLabel" type="Label" parent="VBoxContainer/DebugUI/DebugDisplay" unique_id=739170796]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_alqjt")
+text = "Speed:"
+
+[node name="SpeedField" type="Label" parent="VBoxContainer/DebugUI/DebugDisplay" unique_id=757630125]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[node name="AccelLabel" type="Label" parent="VBoxContainer/DebugUI/DebugDisplay" unique_id=1503580674]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_alqjt")
+text = "Accel:"
+
+[node name="AccelField" type="Label" parent="VBoxContainer/DebugUI/DebugDisplay" unique_id=134526697]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[node name="DistHomeLabel" type="Label" parent="VBoxContainer/DebugUI/DebugDisplay" unique_id=1846562924]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_alqjt")
+text = "Distance to Home:"
+
+[node name="DistHomeField" type="Label" parent="VBoxContainer/DebugUI/DebugDisplay" unique_id=1844366423]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=330930139]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer" unique_id=1779634772]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/DebugUI/DebugButtons/DebugSpeedChange" to="VBoxContainer/DebugUI" method="_on_debug_speed_change_pressed"]
+[connection signal="pressed" from="VBoxContainer/DebugUI/DebugButtons/DebugAccelChange" to="VBoxContainer/DebugUI" method="_on_debug_accel_change_pressed"]
+[connection signal="pressed" from="VBoxContainer/DebugUI/DebugButtons/DebugDistanceChange" to="VBoxContainer/DebugUI" method="_on_debug_distance_change_pressed"]
