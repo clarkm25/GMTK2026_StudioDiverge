@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var move_speed = 300.0
+@export var move_speed = 100.0
 
 func _ready():
 	%FadeTransition/AnimationPlayer.play('fade_in')
@@ -18,7 +18,6 @@ func _physics_process(delta):
 		
 	move_and_slide()
 	
-	"""
 	if direction.x == 0 and direction.y == 0:
 		$AnimationPlayer.seek(0.9, true) # the standing pose of current animation
 	
@@ -30,4 +29,3 @@ func _physics_process(delta):
 		$AnimationPlayer.play("walk_up")
 	elif direction.y > 0:
 		$AnimationPlayer.play("walk_down")
-	"""
