@@ -1,0 +1,36 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://8h36vfy7ijo"
+path="res://.godot/imported/Bringbold Nineties Demo.otf-feca908b0821a399bcc2a1c10c6fce29.fontdata"
+
+[deps]
+
+source_file="res://assets/fonts/bringbold_nineties/Bringbold Nineties Demo.otf"
+dest_files=["res://.godot/imported/Bringbold Nineties Demo.otf-feca908b0821a399bcc2a1c10c6fce29.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+disable_embedded_bitmaps=true
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+modulate_color_glyphs=false
+hinting=3
+subpixel_positioning=4
+keep_rounding_remainders=true
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}

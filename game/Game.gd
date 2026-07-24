@@ -10,6 +10,7 @@ var ship_integrity : float:
 		ship_integrity = clamp(value, 0, 1)
 
 var home_distance : float
+var ship_home : bool = false
 
 @export_category("Starting Configuration")
 @export var starting_distance : int
@@ -24,5 +25,6 @@ func _process(delta):
 func _physics_process(delta):
 	ship_speed += ship_accel*delta
 	home_distance = clamp(home_distance - (ship_speed * delta), -1, 1000000000000)
-	if home_distance <= -1:
+	if home_distance <= -1 and !ship_home:
 		get_tree().change_scene_to_file("res://assets/earth_blowup/earth_blowup.tscn")
+		ship_home = true

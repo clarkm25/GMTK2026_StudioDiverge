@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://bollhnpi648qi" path="res://assets/earth_blowup/earth_blowup31.png" id="31_b7ao4"]
 [ext_resource type="Texture2D" uid="uid://chpqeg3y11q2n" path="res://assets/earth_blowup/earth_blowup32.png" id="32_nujw5"]
 [ext_resource type="Script" uid="uid://cqt3ix6x5dvru" path="res://assets/earth_blowup/earth_blowup.gd" id="33_5cbmj"]
+[ext_resource type="FontFile" uid="uid://ceko61c2rt4xi" path="res://assets/fonts/bringbold_nineties/Bringbold Nineties Demo.ttf" id="34_ds36x"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_821mi"]
 animations = [{
@@ -138,11 +139,35 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="EarthBlowup" type="AnimatedSprite2D" unique_id=1146248922]
-position = Vector2(33, 16)
+[node name="EarthBlowup" type="Node2D" unique_id=1510522616]
+process_mode = 3
+
+[node name="EarthBlowup" type="AnimatedSprite2D" parent="." unique_id=1146248922]
 sprite_frames = SubResource("SpriteFrames_821mi")
 autoplay = "default"
 frame = 31
 frame_progress = 1.0
-offset = Vector2(288, 162)
+offset = Vector2(320, 180)
 script = ExtResource("33_5cbmj")
+
+[node name="HoneyWeAreHome" type="Label" parent="EarthBlowup" unique_id=556974679]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 106.0
+offset_bottom = 47.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.9764706, 0.3254902, 1)
+theme_override_fonts/font = ExtResource("34_ds36x")
+theme_override_font_sizes/font_size = 30
+text = "Honey, 
+We're Home!"
+horizontal_alignment = 1
+vertical_alignment = 1
