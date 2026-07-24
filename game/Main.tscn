@@ -1,7 +1,9 @@
 [gd_scene format=4 uid="uid://bwk10ipc6gbl2"]
 
 [ext_resource type="Texture2D" uid="uid://iq0xg7h4mv5d" path="res://assets/space_background_variation1.png" id="1_2o28a"]
+[ext_resource type="Script" uid="uid://blypotl47w558" path="res://game/main.gd" id="1_ljq5a"]
 [ext_resource type="Texture2D" uid="uid://blp73apq1vbj0" path="res://assets/space_background_variation2.png" id="2_8gaax"]
+[ext_resource type="PackedScene" uid="uid://bw7mb5rkhhdkk" path="res://game objects/Player.tscn" id="5_madmh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8gaax"]
 texture = ExtResource("1_2o28a")
@@ -19,8 +21,11 @@ sources/6 = SubResource("TileSetAtlasSource_8gaax")
 sources/7 = SubResource("TileSetAtlasSource_2fjjk")
 
 [node name="Main" type="Node2D" unique_id=1078661697]
+script = ExtResource("1_ljq5a")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=849648690]
 position = Vector2(-7.935, 0)
 tile_map_data = PackedByteArray("AAAAAAAABgAAAAAAAAACAAAABgAAAAAAAAACAAEABgAAAAAAAAABAAEABgAAAAAAAAAAAAEABgAAAAAAAAD//wEABgAAAAAAAAD//wAABgAAAAAAAAD/////BwAAAAAAAFAAAP//BgAAAAAAAAABAP//BgAAAAAAAAACAP//BgAAAAAAAAABAAAABwAAAAAAAAA=")
 tile_set = SubResource("TileSet_alqjt")
+
+[node name="CharacterBody2D" parent="." unique_id=325630486 instance=ExtResource("5_madmh")]
