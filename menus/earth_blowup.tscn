@@ -34,6 +34,8 @@
 [ext_resource type="Texture2D" uid="uid://chpqeg3y11q2n" path="res://assets/earth_blowup/earth_blowup32.png" id="32_nujw5"]
 [ext_resource type="Script" uid="uid://cqt3ix6x5dvru" path="res://menus/earth_blowup.gd" id="33_5cbmj"]
 [ext_resource type="FontFile" uid="uid://ceko61c2rt4xi" path="res://assets/fonts/bringbold_nineties/Bringbold Nineties Demo.ttf" id="34_ds36x"]
+[ext_resource type="AudioStream" uid="uid://5oaj5sd5o4d7" path="res://assets/sfx/abandoned_outpost.ogg" id="35_377ik"]
+[ext_resource type="AudioStream" uid="uid://b2jx88b85ujy3" path="res://assets/sfx/nuclear_dragon.mp3" id="36_3cnfj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_821mi"]
 animations = [{
@@ -171,5 +173,16 @@ text = "Honey,
 We're Home!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=83101376]
+process_mode = 3
+stream = ExtResource("35_377ik")
+autoplay = true
+bus = &"Music"
+
+[node name="SFX" type="AudioStreamPlayer" parent="." unique_id=1198178112]
+process_mode = 3
+stream = ExtResource("36_3cnfj")
+bus = &"Music"
 
 [connection signal="animation_finished" from="EarthBlowup" to="EarthBlowup" method="_on_animation_finished"]

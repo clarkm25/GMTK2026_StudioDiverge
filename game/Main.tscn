@@ -13,9 +13,9 @@
 [ext_resource type="Theme" uid="uid://cda6hhwjgk6fx" path="res://assets/debug_ui_theme.tres" id="5_fk7ia"]
 [ext_resource type="PackedScene" uid="uid://bw7mb5rkhhdkk" path="res://game objects/Player.tscn" id="5_madmh"]
 [ext_resource type="Texture2D" uid="uid://jf4ghhu1mx32" path="res://assets/paralax/dust_dark.png" id="7_4lvxf"]
-[ext_resource type="AudioStream" uid="uid://dcb8y5g8j8ujk" path="res://assets/surreal_space.wav" id="7_fk7ia"]
 [ext_resource type="Texture2D" uid="uid://b1ag18kkwweho" path="res://assets/paralax/stars_close.png" id="8_kbr2n"]
 [ext_resource type="Texture2D" uid="uid://2uvfnvvdpn2j" path="res://assets/paralax/planets.png" id="8_ovcs7"]
+[ext_resource type="AudioStream" uid="uid://b8uum7dywsgeg" path="res://assets/sfx/beyond_the_star_gate.ogg" id="14_ovcs7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8gaax"]
 texture = ExtResource("1_2o28a")
@@ -238,11 +238,16 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/Control" unique_id=54214621]
+[node name="Music" type="AudioStreamPlayer" parent="CanvasLayer/Control" unique_id=54214621]
+unique_name_in_owner = true
 process_mode = 3
-stream = ExtResource("7_fk7ia")
-volume_db = -10.704
+stream = ExtResource("14_ovcs7")
 autoplay = true
+bus = &"Music"
+
+[node name="SFX" type="AudioStreamPlayer" parent="CanvasLayer/Control" unique_id=1082831769]
+process_mode = 3
+bus = &"SFX"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1580460673]
 anchors_preset = 15

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bv2ja00amryui" path="res://menus/menu.gd" id="1_gdhhp"]
 [ext_resource type="PackedScene" uid="uid://drl77ec7v0xvo" path="res://menus/FadeTransition.tscn" id="2_8djp2"]
 [ext_resource type="PackedScene" uid="uid://dvvwk5i17yrcb" path="res://menus/Options.tscn" id="3_8djp2"]
-[ext_resource type="AudioStream" uid="uid://dh2q35b5nvjp4" path="res://menus/ambient_space_looped.tres" id="4_jv27f"]
+[ext_resource type="AudioStream" uid="uid://bnue76wf68yfp" path="res://assets/sfx/orbital_scan.ogg" id="4_jv27f"]
 
 [node name="Menu" type="Control" unique_id=426395188]
 layout_mode = 3
@@ -64,10 +64,11 @@ offset_right = 150.0
 offset_bottom = 150.0
 in_main_menu = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=973437073]
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=973437073]
 process_mode = 3
 stream = ExtResource("4_jv27f")
 autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="ButtonManager/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="ButtonManager/Options" to="." method="_on_options_pressed"]

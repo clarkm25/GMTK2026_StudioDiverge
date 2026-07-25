@@ -5,7 +5,7 @@ extends GridContainer
 @onready var dist_home_field = %DistHomeField
 @onready var amount_change = $DebugButtons/DebugAmountChange
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	speed_field.text     = "%5.2f km/h" % Game.ship_speed
 	accel_field.text     = "%5.2f km/h/h" % Game.ship_accel
 	dist_home_field.text = "%10d km"    % Game.home_distance
