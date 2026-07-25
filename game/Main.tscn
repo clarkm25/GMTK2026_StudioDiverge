@@ -68,54 +68,57 @@ autoplay = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 18.0
-offset_bottom = -327.0
+offset_top = 8.0
+offset_bottom = -319.00012
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.97, 0.97)
 
 [node name="DebugUI" type="GridContainer" parent="CanvasLayer/VBoxContainer" unique_id=1710444227]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_horizontal = 4
 theme_override_constants/h_separation = 12
 columns = 3
 script = ExtResource("4_yo8gm")
 
 [node name="DebugButtons" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/DebugUI" unique_id=1374654344]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="DebugAmountChange" type="LineEdit" parent="CanvasLayer/VBoxContainer/DebugUI/DebugButtons" unique_id=405028279]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
 theme = ExtResource("5_fk7ia")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 10
 placeholder_text = "Amount to add..."
 
 [node name="DebugSpeedChange" type="Button" parent="CanvasLayer/VBoxContainer/DebugUI/DebugButtons" unique_id=1999921183]
 layout_mode = 2
 theme = ExtResource("5_fk7ia")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 10
 text = "+Speed"
 
 [node name="DebugAccelChange" type="Button" parent="CanvasLayer/VBoxContainer/DebugUI/DebugButtons" unique_id=657410042]
 layout_mode = 2
 theme = ExtResource("5_fk7ia")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 10
 text = "+Accel"
 
 [node name="DebugDistanceChange" type="Button" parent="CanvasLayer/VBoxContainer/DebugUI/DebugButtons" unique_id=1249177535]
 layout_mode = 2
 theme = ExtResource("5_fk7ia")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 10
 text = "+Distance"
 
 [node name="DebugDisplay" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/DebugUI" unique_id=1059363655]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_constants/separation = 0
 
 [node name="SpeedLabel" type="Label" parent="CanvasLayer/VBoxContainer/DebugUI/DebugDisplay" unique_id=739170796]
 layout_mode = 2
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxFlat_alqjt")
 text = "Speed:"
 
@@ -123,11 +126,11 @@ text = "Speed:"
 unique_name_in_owner = true
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 10
 
 [node name="AccelLabel" type="Label" parent="CanvasLayer/VBoxContainer/DebugUI/DebugDisplay" unique_id=1503580674]
 layout_mode = 2
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxFlat_alqjt")
 text = "Accel:"
 
@@ -135,11 +138,11 @@ text = "Accel:"
 unique_name_in_owner = true
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 10
 
 [node name="DistHomeLabel" type="Label" parent="CanvasLayer/VBoxContainer/DebugUI/DebugDisplay" unique_id=1846562924]
 layout_mode = 2
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxFlat_alqjt")
 text = "Distance to Home:"
 
@@ -147,7 +150,7 @@ text = "Distance to Home:"
 unique_name_in_owner = true
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 10
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/VBoxContainer" unique_id=330930139]
 layout_mode = 2
