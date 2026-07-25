@@ -42,7 +42,7 @@ func change_audio_bus_volume(value: float):
 func swap_music():
 	var tween = get_tree().create_tween()
 	tween.tween_method(change_audio_bus_volume, 0.0, -60.0, 2.0)
-	var collapse_of_the_core = AudioStreamOggVorbis.load_from_file("res://assets/music/collapse_of_the_core.ogg")
+	var collapse_of_the_core = AudioStreamOggVorbis.load_from_file("res://assets/sfx/collapse_of_the_core.ogg")
 	tween.tween_callback(swap_audio.bind(collapse_of_the_core))
 	tween.tween_method(change_audio_bus_volume, -60.0, 0.0, 2.0)
 

@@ -13,11 +13,10 @@
 [ext_resource type="Theme" uid="uid://cda6hhwjgk6fx" path="res://assets/debug_ui_theme.tres" id="5_fk7ia"]
 [ext_resource type="PackedScene" uid="uid://bw7mb5rkhhdkk" path="res://game objects/Player.tscn" id="5_madmh"]
 [ext_resource type="Texture2D" uid="uid://jf4ghhu1mx32" path="res://assets/paralax/dust_dark.png" id="7_4lvxf"]
-[ext_resource type="AudioStream" uid="uid://dcb8y5g8j8ujk" path="res://assets/surreal_space.wav" id="7_fk7ia"]
-[ext_resource type="PackedScene" uid="uid://du2nhthdkn44c" path="res://game objects/interactables/FuelTank.tscn" id="10_0btcf"]
-[ext_resource type="PackedScene" uid="uid://diw88wg5nuwhr" path="res://game objects/interactables/Burner.tscn" id="12_6lgcj"]
 [ext_resource type="Texture2D" uid="uid://b1ag18kkwweho" path="res://assets/paralax/stars_close.png" id="8_kbr2n"]
 [ext_resource type="Texture2D" uid="uid://2uvfnvvdpn2j" path="res://assets/paralax/planets.png" id="8_ovcs7"]
+[ext_resource type="PackedScene" uid="uid://du2nhthdkn44c" path="res://game objects/interactables/FuelTank.tscn" id="10_0btcf"]
+[ext_resource type="PackedScene" uid="uid://diw88wg5nuwhr" path="res://game objects/interactables/Burner.tscn" id="12_6lgcj"]
 [ext_resource type="AudioStream" uid="uid://b8uum7dywsgeg" path="res://assets/sfx/beyond_the_star_gate.ogg" id="14_ovcs7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8gaax"]
