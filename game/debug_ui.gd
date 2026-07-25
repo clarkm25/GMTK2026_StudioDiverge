@@ -10,7 +10,6 @@ func _physics_process(_delta):
 	accel_field.text     = "%5.2f km/h/h" % Game.ship_accel
 	dist_home_field.text = "%10d km"    % Game.home_distance
 
-
 func _on_debug_speed_change_pressed():
 	Game.ship_speed += float(amount_change.text)
 	amount_change.text_submitted.emit()

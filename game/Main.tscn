@@ -13,6 +13,9 @@
 [ext_resource type="Theme" uid="uid://cda6hhwjgk6fx" path="res://assets/debug_ui_theme.tres" id="5_fk7ia"]
 [ext_resource type="PackedScene" uid="uid://bw7mb5rkhhdkk" path="res://game objects/Player.tscn" id="5_madmh"]
 [ext_resource type="Texture2D" uid="uid://jf4ghhu1mx32" path="res://assets/paralax/dust_dark.png" id="7_4lvxf"]
+[ext_resource type="AudioStream" uid="uid://dcb8y5g8j8ujk" path="res://assets/surreal_space.wav" id="7_fk7ia"]
+[ext_resource type="PackedScene" uid="uid://du2nhthdkn44c" path="res://game objects/interactables/FuelTank.tscn" id="10_0btcf"]
+[ext_resource type="PackedScene" uid="uid://diw88wg5nuwhr" path="res://game objects/interactables/Burner.tscn" id="12_6lgcj"]
 [ext_resource type="Texture2D" uid="uid://b1ag18kkwweho" path="res://assets/paralax/stars_close.png" id="8_kbr2n"]
 [ext_resource type="Texture2D" uid="uid://2uvfnvvdpn2j" path="res://assets/paralax/planets.png" id="8_ovcs7"]
 [ext_resource type="AudioStream" uid="uid://b8uum7dywsgeg" path="res://assets/sfx/beyond_the_star_gate.ogg" id="14_ovcs7"]
@@ -36,6 +39,7 @@ sources/7 = SubResource("TileSetAtlasSource_2fjjk")
 bg_color = Color(0.26666668, 0.26666668, 0.26666668, 0.7411765)
 
 [node name="Main" type="Node2D" unique_id=1078661697 node_paths=PackedStringArray("fade_trans")]
+y_sort_enabled = true
 script = ExtResource("1_v2tjf")
 fade_trans = NodePath("CanvasLayer/Control/FadeTransition")
 
@@ -346,6 +350,12 @@ alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
+
+[node name="FuelTank" parent="." unique_id=727356559 instance=ExtResource("10_0btcf")]
+position = Vector2(152, 113)
+
+[node name="Burner" parent="." unique_id=64445812 instance=ExtResource("12_6lgcj")]
+position = Vector2(-129, 156)
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/DebugUI/DebugButtons/DebugSpeedChange" to="CanvasLayer/VBoxContainer/DebugUI" method="_on_debug_speed_change_pressed"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/DebugUI/DebugButtons/DebugAccelChange" to="CanvasLayer/VBoxContainer/DebugUI" method="_on_debug_accel_change_pressed"]

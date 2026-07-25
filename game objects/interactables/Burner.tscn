@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://diw88wg5nuwhr"]
+
+[ext_resource type="Script" uid="uid://d0g63umec2bs4" path="res://game objects/interactables/burner.gd" id="1_63caj"]
+[ext_resource type="Material" uid="uid://bnnxf44tkxjvp" path="res://assets/shine_material.tres" id="2_4wgno"]
+[ext_resource type="Texture2D" uid="uid://cvk04krfbqdhp" path="res://assets/spaceship_tileset/tilesets/Burner.png" id="2_81vgh"]
+[ext_resource type="Script" uid="uid://b11n8h556ja7" path="res://addons/interaction_system/systems/interaction/interactable/interactable_2d.gd" id="3_4wgno"]
+[ext_resource type="Texture2D" uid="uid://bteym4dtiju7t" path="res://assets/spaceship_tileset/tilesets/Spark.png" id="5_4wgno"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8vv3g"]
+size = Vector2(134, 59)
+
+[sub_resource type="Curve" id="Curve_alqjt"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Burner" type="Node2D" unique_id=64445812 node_paths=PackedStringArray("sprite", "item_slot")]
+script = ExtResource("1_63caj")
+sprite = NodePath("Sprite2D")
+item_slot = NodePath("ItemSlot")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=150712054]
+material = ExtResource("2_4wgno")
+texture = ExtResource("2_81vgh")
+offset = Vector2(0, -20)
+
+[node name="Interactable2D" type="Area2D" parent="." unique_id=1084480432]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("3_4wgno")
+metadata/_custom_type_script = "uid://b11n8h556ja7"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable2D" unique_id=1073200361]
+position = Vector2(0, -20.5)
+shape = SubResource("RectangleShape2D_8vv3g")
+
+[node name="ItemSlot" type="Marker2D" parent="." unique_id=1548080653]
+position = Vector2(0, -23)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1390987672]
+position = Vector2(0, -21)
+emitting = false
+amount = 30
+texture = ExtResource("5_4wgno")
+one_shot = true
+speed_scale = 2.18
+explosiveness = 1.0
+randomness = 0.29
+lifetime_randomness = 0.12
+spread = 180.0
+gravity = Vector2(0, 98)
+initial_velocity_min = 44.78
+initial_velocity_max = 74.63
+angular_velocity_max = 2.0
+radial_accel_min = -21.64
+radial_accel_max = -17.91
+angle_min = 37.6
+angle_max = 381.5
+scale_amount_max = 1.8
+scale_amount_curve = SubResource("Curve_alqjt")
+hue_variation_max = 0.25
+
+[node name="BurnSFXPlayer" type="AudioStreamPlayer2D" parent="." unique_id=37321770]
+
+[connection signal="closest" from="Interactable2D" to="." method="_on_interactable_2d_closest"]
+[connection signal="interacted" from="Interactable2D" to="." method="_on_interactable_2d_interacted"]
+[connection signal="not_closest" from="Interactable2D" to="." method="_on_interactable_2d_not_closest"]
