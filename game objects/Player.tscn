@@ -360,10 +360,12 @@ _data = {
 &"walk_up": SubResource("Animation_gqib2")
 }
 
-[node name="Player" type="CharacterBody2D" unique_id=325630486 node_paths=PackedStringArray("item_slot")]
+[node name="Player" type="CharacterBody2D" unique_id=325630486 node_paths=PackedStringArray("item_slot", "animation_player")]
 y_sort_enabled = true
 script = ExtResource("1_5j3po")
+move_speed = 175.0
 item_slot = NodePath("ItemSlot")
+animation_player = NodePath("AnimationPlayer")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1185294471]
 

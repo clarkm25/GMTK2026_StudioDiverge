@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var move_speed = 100.0
 @export var item_slot : Marker2D
-
+@export var animation_player : AnimationPlayer
 @onready var sprite = %Sprite2D
 
 var current_item_stats : PickupStats
@@ -21,29 +21,30 @@ func _physics_process(_delta):
 		
 	move_and_slide()
 	
+	animation_player.speed_scale = velocity.length() / move_speed
 	# Set an idle animation to prevent flickering from just setting a single frame
 	if direction.x == 0 and direction.y == 0:
 		if idle_dir == Vector2.DOWN:
-			$AnimationPlayer.play("idle_down")
+			animation_player.play("idle_down")
 		elif idle_dir == Vector2.UP:
-			$AnimationPlayer.play("idle_up")
+			animation_player.play("idle_up")
 		elif idle_dir == Vector2.LEFT:
-			$AnimationPlayer.play("idle_left")
+			animation_player.play("idle_left")
 			item_slot.scale.x = -1
 		elif idle_dir == Vector2.RIGHT:
-			$AnimationPlayer.play("idle_right")
+			animation_player.play("idle_right")
 			item_slot.scale.x = 1
 	if direction.x > 0:
-		$AnimationPlayer.play("walk_right")
+		animation_player.play("walk_right")
 		idle_dir = Vector2.RIGHT
 		item_slot.scale.x = 1
 	elif direction.x < 0:
-		$AnimationPlayer.play("walk_left")
+		animation_player.play("walk_left")
 		idle_dir = Vector2.LEFT
 		item_slot.scale.x = -1
 	elif direction.y < 0:
-		$AnimationPlayer.play("walk_up")
+		animation_player.play("walk_up")
 		idle_dir = Vector2.UP
 	elif direction.y > 0:
-		$AnimationPlayer.play("walk_down")
+		animation_player.play("walk_down")
 		idle_dir = Vector2.DOWN
