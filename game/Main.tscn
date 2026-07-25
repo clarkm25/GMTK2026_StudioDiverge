@@ -28,8 +28,9 @@ sources/7 = SubResource("TileSetAtlasSource_2fjjk")
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_alqjt"]
 bg_color = Color(0.26666668, 0.26666668, 0.26666668, 0.7411765)
 
-[node name="Main" type="Node2D" unique_id=1078661697]
+[node name="Main" type="Node2D" unique_id=1078661697 node_paths=PackedStringArray("fade_trans")]
 script = ExtResource("1_v2tjf")
+fade_trans = NodePath("CanvasLayer/Control/FadeTransition")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=849648690]
 position = Vector2(-7.935, 0)
@@ -55,9 +56,7 @@ layout_mode = 2
 
 [node name="FadeTransition" parent="CanvasLayer/Control" unique_id=1486688309 instance=ExtResource("4_madmh")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
-mouse_filter = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/Control" unique_id=54214621]
 process_mode = 3

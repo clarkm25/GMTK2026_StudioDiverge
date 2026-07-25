@@ -44,10 +44,8 @@ layout_mode = 2
 text = "Quit"
 
 [node name="FadeTransition" parent="." unique_id=1486688309 instance=ExtResource("2_8djp2")]
-visible = false
 z_index = 1
 layout_mode = 0
-mouse_filter = 2
 
 [node name="FadeTimer" type="Timer" parent="FadeTransition" unique_id=1811103031]
 wait_time = 1.5
@@ -68,7 +66,6 @@ offset_bottom = 150.0
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=973437073]
 stream = ExtResource("4_jv27f")
 autoplay = true
-bus = &"Music"
 
 [connection signal="pressed" from="ButtonManager/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="ButtonManager/Options" to="." method="_on_options_pressed"]

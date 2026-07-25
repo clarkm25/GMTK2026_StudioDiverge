@@ -5,7 +5,6 @@ var button_type = null
 
 @onready var options = $Options
 @onready var fade_trans = $FadeTransition
-@onready var fade_timer = $FadeTransition/FadeTimer
 @onready var fade_anim = $FadeTransition/AnimationPlayer
 
 
@@ -21,12 +20,9 @@ func _on_quit_pressed() -> void:
 	_fade_out()
 
 func _fade_out() -> void:
-	fade_trans.show()
-	fade_timer.start()
-	fade_anim.play('fade_out')
-
-func _on_fade_timer_timeout() -> void:
-	if button_type == 'start':
-		get_tree().change_scene_to_file("res://game/Main.tscn")
-	elif button_type == 'quit':
-		get_tree().quit()
+	await Game.fade_out()
+	match button_type:
+		'start':
+			get_tree().change_scene_to_file("res://game/Main.tscn")
+		'quit':
+			get_tree().quit()

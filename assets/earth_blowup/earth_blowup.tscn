@@ -38,7 +38,7 @@
 [sub_resource type="SpriteFrames" id="SpriteFrames_821mi"]
 animations = [{
 "frames": [{
-"duration": 25.0,
+"duration": 40.0,
 "texture": ExtResource("1_f6vjx")
 }, {
 "duration": 1.0,

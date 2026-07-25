@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://drl77ec7v0xvo"]
 
+[ext_resource type="Script" uid="uid://wiigj22wvytx" path="res://menus/fade_transition.gd" id="1_nxm48"]
+
 [sub_resource type="Animation" id="Animation_omayc"]
 length = 0.001
 tracks/0/type = "value"
@@ -54,14 +56,20 @@ _data = {
 &"fade_out": SubResource("Animation_85vba")
 }
 
-[node name="FadeTransition" type="ColorRect" unique_id=1486688309]
+[node name="FadeTransition" type="ColorRect" unique_id=1486688309 node_paths=PackedStringArray("animation_player")]
 process_mode = 3
+visible = false
 top_level = true
+custom_minimum_size = Vector2(300, 300)
 offset_right = 640.0
 offset_bottom = 360.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
+script = ExtResource("1_nxm48")
+animation_player = NodePath("AnimationPlayer")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1747911865]
+deterministic = true
 libraries/ = SubResource("AnimationLibrary_wxigm")
