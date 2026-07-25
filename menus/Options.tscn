@@ -43,6 +43,16 @@ theme_override_constants/margin_bottom = 25
 layout_mode = 2
 theme_override_constants/separation = 16
 
+[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=88578377]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="Close" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer5" unique_id=2054520407]
+custom_maximum_size = Vector2(-1, 24)
+layout_mode = 2
+text = "Close"
+
 [node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=2101950583]
 layout_mode = 2
 alignment = 1
@@ -101,18 +111,19 @@ custom_maximum_size = Vector2(-1, 24)
 layout_mode = 2
 text = "Reset to Default"
 
-[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=88578377]
+[node name="HBoxContainer6" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1675620136]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 10
 
-[node name="Close" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer5" unique_id=2054520407]
+[node name="MainMenu" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer6" unique_id=431117195]
 custom_maximum_size = Vector2(-1, 24)
 layout_mode = 2
-text = "Close"
+text = "Main Menu"
 
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer5/Close" to="." method="_on_close_pressed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/HBoxContainer3/Sound" to="." method="_on_sound_value_changed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/HBoxContainer/Music" to="." method="_on_music_value_changed"]
 [connection signal="toggled" from="MarginContainer/VBoxContainer/HBoxContainer2/Mute" to="." method="_on_mute_toggled"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer4/Reset" to="." method="_on_reset_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer5/Close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer6/MainMenu" to="." method="_on_main_menu_pressed"]

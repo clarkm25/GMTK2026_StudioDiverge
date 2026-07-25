@@ -7,6 +7,8 @@ var button_type = null
 @onready var fade_trans = $FadeTransition
 @onready var fade_anim = $FadeTransition/AnimationPlayer
 
+func _ready():
+	Game.cleanup_fade()
 
 func _on_start_pressed() -> void:
 	button_type = 'start'

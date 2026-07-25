@@ -62,8 +62,10 @@ offset_left = -150.0
 offset_top = -150.0
 offset_right = 150.0
 offset_bottom = 150.0
+in_main_menu = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=973437073]
+process_mode = 3
 stream = ExtResource("4_jv27f")
 autoplay = true
 

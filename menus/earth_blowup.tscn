@@ -32,7 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://i3rm4e75cbot" path="res://assets/earth_blowup/earth_blowup30.png" id="30_xctye"]
 [ext_resource type="Texture2D" uid="uid://bollhnpi648qi" path="res://assets/earth_blowup/earth_blowup31.png" id="31_b7ao4"]
 [ext_resource type="Texture2D" uid="uid://chpqeg3y11q2n" path="res://assets/earth_blowup/earth_blowup32.png" id="32_nujw5"]
-[ext_resource type="Script" uid="uid://cqt3ix6x5dvru" path="res://assets/earth_blowup/earth_blowup.gd" id="33_5cbmj"]
+[ext_resource type="Script" uid="uid://cqt3ix6x5dvru" path="res://menus/earth_blowup.gd" id="33_5cbmj"]
 [ext_resource type="FontFile" uid="uid://ceko61c2rt4xi" path="res://assets/fonts/bringbold_nineties/Bringbold Nineties Demo.ttf" id="34_ds36x"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_821mi"]
@@ -172,3 +172,5 @@ text = "Honey,
 We're Home!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="animation_finished" from="EarthBlowup" to="EarthBlowup" method="_on_animation_finished"]

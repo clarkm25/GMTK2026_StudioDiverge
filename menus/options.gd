@@ -2,11 +2,12 @@ extends Panel
 
 
 @export var active = false
-
+@export var in_main_menu = false
 
 func _ready() -> void:
-	pass
-	#%FadeTransition/AnimationPlayer.play('fade_in')
+	if in_main_menu:
+		$MarginContainer/VBoxContainer/HBoxContainer6.hide()
+
 
 func _process(delta: float) -> void:
 	if (Input.is_action_just_pressed('options')):
@@ -22,8 +23,8 @@ func pause():
 	get_tree().paused = true
 
 func unpause():
-	get_tree().paused = false
-	self.hide()
+	self.get_tree().paused = false
+	hide()
 	active = false
 
 
@@ -54,3 +55,8 @@ func _on_reset_pressed() -> void:
 
 func _on_close_pressed() -> void:
 	unpause()
+
+
+func _on_main_menu_pressed() -> void:
+	unpause()
+	get_tree().change_scene_to_file("res://menus/Menu.tscn")

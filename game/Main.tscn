@@ -3,14 +3,21 @@
 [ext_resource type="Texture2D" uid="uid://iq0xg7h4mv5d" path="res://assets/space_background_variation1.png" id="1_2o28a"]
 [ext_resource type="Script" uid="uid://blypotl47w558" path="res://game/main.gd" id="1_v2tjf"]
 [ext_resource type="Texture2D" uid="uid://blp73apq1vbj0" path="res://assets/space_background_variation2.png" id="2_8gaax"]
+[ext_resource type="Texture2D" uid="uid://cywl32bw2jh1x" path="res://icon.svg" id="2_ovcs7"]
+[ext_resource type="Script" uid="uid://bc7wxvqfc11x5" path="res://game/paralax.gd" id="3_ovcs7"]
+[ext_resource type="Texture2D" uid="uid://duu8uii1w4aal" path="res://assets/paralax/nebulae_dark.png" id="4_8b68q"]
 [ext_resource type="PackedScene" uid="uid://dvvwk5i17yrcb" path="res://menus/Options.tscn" id="4_ljq5a"]
 [ext_resource type="PackedScene" uid="uid://drl77ec7v0xvo" path="res://menus/FadeTransition.tscn" id="4_madmh"]
 [ext_resource type="Script" uid="uid://ig2kct7r4oee" path="res://game/debug_ui.gd" id="4_yo8gm"]
+[ext_resource type="Texture2D" uid="uid://hfbyu7oec6bx" path="res://assets/paralax/stars_far.png" id="5_03u2m"]
 [ext_resource type="Theme" uid="uid://cda6hhwjgk6fx" path="res://assets/debug_ui_theme.tres" id="5_fk7ia"]
 [ext_resource type="PackedScene" uid="uid://bw7mb5rkhhdkk" path="res://game objects/Player.tscn" id="5_madmh"]
+[ext_resource type="Texture2D" uid="uid://jf4ghhu1mx32" path="res://assets/paralax/dust_dark.png" id="7_4lvxf"]
 [ext_resource type="AudioStream" uid="uid://dcb8y5g8j8ujk" path="res://assets/surreal_space.wav" id="7_fk7ia"]
 [ext_resource type="PackedScene" uid="uid://du2nhthdkn44c" path="res://game objects/interactables/FuelTank.tscn" id="10_0btcf"]
 [ext_resource type="PackedScene" uid="uid://diw88wg5nuwhr" path="res://game objects/interactables/Burner.tscn" id="12_6lgcj"]
+[ext_resource type="Texture2D" uid="uid://b1ag18kkwweho" path="res://assets/paralax/stars_close.png" id="8_kbr2n"]
+[ext_resource type="Texture2D" uid="uid://2uvfnvvdpn2j" path="res://assets/paralax/planets.png" id="8_ovcs7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8gaax"]
 texture = ExtResource("1_2o28a")
@@ -35,8 +42,181 @@ y_sort_enabled = true
 script = ExtResource("1_v2tjf")
 fade_trans = NodePath("CanvasLayer/Control/FadeTransition")
 
+[node name="Space" type="Node2D" parent="." unique_id=1710184545]
+z_index = -1
+
+[node name="GODot" type="Sprite2D" parent="Space" unique_id=1071514180]
+modulate = Color(0.012159991, 0.004799999, 0.06, 1)
+scale = Vector2(23.438, 23.438)
+texture = ExtResource("2_ovcs7")
+script = ExtResource("3_ovcs7")
+
+[node name="GODot2" type="Sprite2D" parent="Space" unique_id=571467878]
+modulate = Color(0.012159991, 0.004799999, 0.06, 1)
+position = Vector2(0, -3000)
+scale = Vector2(23.438, 23.438)
+texture = ExtResource("2_ovcs7")
+script = ExtResource("3_ovcs7")
+
+[node name="NebulaeDarkL" type="Sprite2D" parent="Space" unique_id=2029726398]
+texture_filter = 1
+position = Vector2(-250, 0)
+rotation = 1.5707964
+texture = ExtResource("4_8b68q")
+region_rect = Rect2(0, 0, 640, 360)
+script = ExtResource("3_ovcs7")
+
+[node name="NebulaeDarkR" type="Sprite2D" parent="Space" unique_id=1086425240]
+texture_filter = 1
+position = Vector2(250, 0)
+rotation = 1.5707964
+texture = ExtResource("4_8b68q")
+region_rect = Rect2(0, 0, 640, 360)
+script = ExtResource("3_ovcs7")
+
+[node name="NebulaeDarkL2" type="Sprite2D" parent="Space" unique_id=1717085864]
+texture_filter = 1
+position = Vector2(-250, -3000)
+rotation = 1.5707964
+texture = ExtResource("4_8b68q")
+region_rect = Rect2(0, 0, 640, 360)
+script = ExtResource("3_ovcs7")
+
+[node name="NebulaeDarkR2" type="Sprite2D" parent="Space" unique_id=716276827]
+texture_filter = 1
+position = Vector2(250, -3000)
+rotation = 1.5707964
+texture = ExtResource("4_8b68q")
+region_rect = Rect2(0, 0, 640, 360)
+script = ExtResource("3_ovcs7")
+
+[node name="StarsFarL" type="Sprite2D" parent="Space" unique_id=1296071360]
+texture_filter = 1
+position = Vector2(-250, 0)
+rotation = 1.5707964
+texture = ExtResource("5_03u2m")
+region_rect = Rect2(0, 0, 640, 360)
+script = ExtResource("3_ovcs7")
+layer = 2
+
+[node name="StarsFarR" type="Sprite2D" parent="Space" unique_id=516778828]
+texture_filter = 1
+position = Vector2(250, 0)
+rotation = 1.5707964
+texture = ExtResource("5_03u2m")
+region_rect = Rect2(0, 0, 640, 360)
+script = ExtResource("3_ovcs7")
+layer = 2
+
+[node name="StarsFarL2" type="Sprite2D" parent="Space" unique_id=2069949758]
+texture_filter = 1
+position = Vector2(-250, -3000)
+rotation = 1.5707964
+texture = ExtResource("5_03u2m")
+region_rect = Rect2(0, 0, 640, 360)
+script = ExtResource("3_ovcs7")
+layer = 2
+
+[node name="StarsFarR2" type="Sprite2D" parent="Space" unique_id=1349297253]
+texture_filter = 1
+position = Vector2(250, -3000)
+rotation = 1.5707964
+texture = ExtResource("5_03u2m")
+region_rect = Rect2(0, 0, 640, 360)
+script = ExtResource("3_ovcs7")
+layer = 2
+
+[node name="DustDarkL" type="Sprite2D" parent="Space" unique_id=238502902]
+texture_filter = 1
+position = Vector2(-250, 0)
+rotation = 1.5707964
+texture = ExtResource("7_4lvxf")
+region_rect = Rect2(0, 0, 640, 360)
+script = ExtResource("3_ovcs7")
+layer = 3
+
+[node name="DustDarkR" type="Sprite2D" parent="Space" unique_id=2049216309]
+texture_filter = 1
+position = Vector2(250, 0)
+rotation = 1.5707964
+texture = ExtResource("7_4lvxf")
+region_rect = Rect2(0, 0, 640, 360)
+script = ExtResource("3_ovcs7")
+layer = 3
+
+[node name="DustDarkL2" type="Sprite2D" parent="Space" unique_id=1310649851]
+texture_filter = 1
+position = Vector2(-250, -3000)
+rotation = 1.5707964
+texture = ExtResource("7_4lvxf")
+region_rect = Rect2(0, 0, 640, 360)
+script = ExtResource("3_ovcs7")
+layer = 3
+
+[node name="DustDarkR2" type="Sprite2D" parent="Space" unique_id=553213284]
+texture_filter = 1
+position = Vector2(250, -3000)
+rotation = 1.5707964
+texture = ExtResource("7_4lvxf")
+region_rect = Rect2(0, 0, 640, 360)
+script = ExtResource("3_ovcs7")
+layer = 3
+
+[node name="StarsCloseL" type="Sprite2D" parent="Space" unique_id=919188038]
+texture_filter = 1
+position = Vector2(-250, 0)
+rotation = 1.5707964
+texture = ExtResource("8_kbr2n")
+region_rect = Rect2(0, 0, 640, 360)
+script = ExtResource("3_ovcs7")
+layer = 4
+
+[node name="StarsCloseR" type="Sprite2D" parent="Space" unique_id=826585490]
+texture_filter = 1
+position = Vector2(250, 0)
+rotation = 1.5707964
+texture = ExtResource("8_kbr2n")
+region_rect = Rect2(0, 0, 640, 360)
+script = ExtResource("3_ovcs7")
+layer = 4
+
+[node name="StarsCloseL2" type="Sprite2D" parent="Space" unique_id=171421120]
+texture_filter = 1
+position = Vector2(-250, -3000)
+rotation = 1.5707964
+texture = ExtResource("8_kbr2n")
+region_rect = Rect2(0, 0, 640, 360)
+script = ExtResource("3_ovcs7")
+layer = 4
+
+[node name="StarsCloseR2" type="Sprite2D" parent="Space" unique_id=1231540122]
+texture_filter = 1
+position = Vector2(250, -3000)
+rotation = 1.5707964
+texture = ExtResource("8_kbr2n")
+region_rect = Rect2(0, 0, 640, 360)
+script = ExtResource("3_ovcs7")
+layer = 4
+
+[node name="Planets" type="Sprite2D" parent="Space" unique_id=2021524857]
+texture_filter = 1
+rotation = 1.5707964
+texture = ExtResource("8_ovcs7")
+region_rect = Rect2(0, 0, 640, 360)
+script = ExtResource("3_ovcs7")
+layer = 5
+
+[node name="Planets2" type="Sprite2D" parent="Space" unique_id=1504375574]
+texture_filter = 1
+position = Vector2(0, -3000)
+rotation = 1.5707964
+texture = ExtResource("8_ovcs7")
+region_rect = Rect2(0, 0, 640, 360)
+script = ExtResource("3_ovcs7")
+layer = 5
+
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=849648690]
-position = Vector2(-7.935, 0)
+visible = false
 tile_map_data = PackedByteArray("AAAAAAAABgAAAAAAAAACAAAABgAAAAAAAAACAAEABgAAAAAAAAABAAEABgAAAAAAAAAAAAEABgAAAAAAAAD//wEABgAAAAAAAAD//wAABgAAAAAAAAD/////BwAAAAAAAFAAAP//BgAAAAAAAAABAP//BgAAAAAAAAACAP//BgAAAAAAAAABAAAABwAAAAAAAAA=")
 tile_set = SubResource("TileSet_alqjt")
 
