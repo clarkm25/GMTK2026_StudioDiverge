@@ -220,7 +220,6 @@ tile_set = SubResource("TileSet_alqjt")
 [node name="Player" parent="." unique_id=325630486 instance=ExtResource("5_madmh")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=319405524]
-visible = false
 
 [node name="Control" type="CenterContainer" parent="CanvasLayer" unique_id=486035342]
 anchors_preset = 15
