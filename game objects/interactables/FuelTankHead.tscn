@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bmx7oajn0g0ex"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3xdh3"]
+load_path = "res://.godot/imported/Propane.png-de4234bc93efe500bc7f665c64b0044a.ctex"
+
+[node name="FuelTankHead" type="Node2D" unique_id=1317360549]
+y_sort_enabled = true
+
+[node name="Node2D" type="Node2D" parent="." unique_id=983062147]
+position = Vector2(0, 60)
+rotation = 1.5707964
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D" unique_id=26595561]
+position = Vector2(-60, 2.6226833e-06)
+texture = SubResource("CompressedTexture2D_3xdh3")

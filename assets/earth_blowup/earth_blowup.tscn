@@ -143,11 +143,12 @@ animations = [{
 process_mode = 3
 
 [node name="EarthBlowup" type="AnimatedSprite2D" parent="." unique_id=1146248922]
+scale = Vector2(1.111, 1.111111)
 sprite_frames = SubResource("SpriteFrames_821mi")
 autoplay = "default"
 frame = 31
 frame_progress = 1.0
-offset = Vector2(320, 180)
+offset = Vector2(288, 162)
 script = ExtResource("33_5cbmj")
 
 [node name="HoneyWeAreHome" type="Label" parent="EarthBlowup" unique_id=556974679]
@@ -158,13 +159,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -42.0
-offset_top = -11.5
-offset_right = 106.0
-offset_bottom = 47.5
+offset_left = -74.0
+offset_top = -29.5
+offset_right = 74.0
+offset_bottom = 29.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(1, 0.9764706, 0.3254902, 1)
+theme_override_colors/font_color = Color(1, 0.9764706, 0.06666667, 1)
 theme_override_fonts/font = ExtResource("34_ds36x")
 theme_override_font_sizes/font_size = 30
 text = "Honey, 

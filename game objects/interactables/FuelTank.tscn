@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://du2nhthdkn44c"]
+
+[ext_resource type="Script" uid="uid://dlmamkhyegy8a" path="res://game objects/interactables/fuel_tank.gd" id="2_kxt23"]
+[ext_resource type="PackedScene" uid="uid://bmx7oajn0g0ex" path="res://game objects/interactables/FuelTankHead.tscn" id="2_m52vc"]
+[ext_resource type="Script" uid="uid://ccwuoh41qow4t" path="res://game objects/interactables/pickup.gd" id="3_itngf"]
+[ext_resource type="Script" uid="uid://b11n8h556ja7" path="res://addons/interaction_system/systems/interaction/interactable/interactable_2d.gd" id="3_m52vc"]
+[ext_resource type="Texture2D" uid="uid://4ka8t4n237x8" path="res://assets/spaceship_tileset/tilesets/Propane.png" id="4_m84ox"]
+[ext_resource type="Material" uid="uid://bnnxf44tkxjvp" path="res://assets/shine_material.tres" id="5_m52vc"]
+
+[sub_resource type="Resource" id="Resource_kxt23"]
+script = ExtResource("3_itngf")
+name = "Fuel Tank"
+burn_time = 5.0
+acceleration_given = 2.0
+metadata/_custom_type_script = "uid://ccwuoh41qow4t"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_alqjt"]
+radius = 14.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m84ox"]
+radius = 9.055386
+
+[node name="FuelTank" type="Node2D" unique_id=727356559 node_paths=PackedStringArray("sprite")]
+y_sort_enabled = true
+script = ExtResource("2_kxt23")
+sprite = NodePath("Sprite2D")
+head_sprite = ExtResource("2_m52vc")
+item_stats = SubResource("Resource_kxt23")
+
+[node name="Interactable2D" type="Area2D" parent="." unique_id=1225153443]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("3_m52vc")
+metadata/_custom_type_script = "uid://b11n8h556ja7"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable2D" unique_id=1360443931]
+shape = SubResource("CircleShape2D_alqjt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=121652414]
+material = ExtResource("5_m52vc")
+texture = ExtResource("4_m84ox")
+offset = Vector2(1.5, -24.5)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1776431156]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1929746960]
+shape = SubResource("CircleShape2D_m84ox")
+
+[connection signal="closest" from="Interactable2D" to="." method="_on_interactable_2d_closest"]
+[connection signal="interacted" from="Interactable2D" to="." method="_on_interactable_2d_interacted"]
+[connection signal="not_closest" from="Interactable2D" to="." method="_on_interactable_2d_not_closest"]

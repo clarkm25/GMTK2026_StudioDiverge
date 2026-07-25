@@ -1,9 +1,11 @@
 extends CharacterBody2D
 
 @export var move_speed = 100.0
+@export var item_slot : Marker2D
 
-@onready var sprite = $Sprite2D
+@onready var sprite = %Sprite2D
 
+var current_item_stats : PickupStats
 var idle_dir = Vector2.DOWN
 
 func _ready():
@@ -29,15 +31,18 @@ func _physics_process(_delta):
 			$AnimationPlayer.play("idle_up")
 		elif idle_dir == Vector2.LEFT:
 			$AnimationPlayer.play("idle_left")
+			item_slot.scale.x = -1
 		elif idle_dir == Vector2.RIGHT:
 			$AnimationPlayer.play("idle_right")
-	
+			item_slot.scale.x = 1
 	if direction.x > 0:
 		$AnimationPlayer.play("walk_right")
 		idle_dir = Vector2.RIGHT
+		item_slot.scale.x = 1
 	elif direction.x < 0:
 		$AnimationPlayer.play("walk_left")
 		idle_dir = Vector2.LEFT
+		item_slot.scale.x = -1
 	elif direction.y < 0:
 		$AnimationPlayer.play("walk_up")
 		idle_dir = Vector2.UP
