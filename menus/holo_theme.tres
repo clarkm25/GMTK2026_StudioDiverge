@@ -1,0 +1,53 @@
+[gd_resource type="Theme" format=3 uid="uid://dcsqog7uwu0bc"]
+
+[ext_resource type="StyleBox" uid="uid://5piscdl6ty83" path="res://menus/button_normal.tres" id="1_au0o0"]
+[ext_resource type="StyleBox" uid="uid://5w7hb8gi10g2" path="res://menus/button_pressed.tres" id="2_8u53n"]
+[ext_resource type="Texture2D" uid="uid://dah84bcly2gih" path="res://assets/ui/holo_book.png" id="2_08xu6"]
+[ext_resource type="StyleBox" uid="uid://coydqu17modnh" path="res://menus/panel.tres" id="3_8u53n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rf1pa"]
+atlas = ExtResource("2_08xu6")
+region = Rect2(54, 1814, 19, 19)
+margin = Rect2(8, 0, 16, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8u53n"]
+atlas = ExtResource("2_08xu6")
+region = Rect2(22, 1814, 19, 19)
+margin = Rect2(8, 0, 16, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qruh7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_chw4q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5t0k4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jyb84"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_myvsc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycjn3"]
+atlas = ExtResource("2_08xu6")
+region = Rect2(117, 1586, 22, 13)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k40h1"]
+content_margin_left = 6.0
+content_margin_right = 6.0
+texture = SubResource("AtlasTexture_ycjn3")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+
+[resource]
+Button/styles/hover = ExtResource("1_au0o0")
+Button/styles/normal = ExtResource("1_au0o0")
+Button/styles/pressed = ExtResource("2_8u53n")
+CheckBox/icons/checked = SubResource("AtlasTexture_rf1pa")
+CheckBox/icons/unchecked = SubResource("AtlasTexture_8u53n")
+CheckBox/styles/focus = SubResource("StyleBoxEmpty_qruh7")
+CheckBox/styles/hover = SubResource("StyleBoxEmpty_chw4q")
+CheckBox/styles/hover_pressed = SubResource("StyleBoxEmpty_5t0k4")
+CheckBox/styles/normal = SubResource("StyleBoxEmpty_jyb84")
+CheckBox/styles/pressed = SubResource("StyleBoxEmpty_myvsc")
+Label/styles/normal = SubResource("StyleBoxTexture_k40h1")
+Panel/styles/panel = ExtResource("3_8u53n")

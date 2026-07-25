@@ -1,0 +1,16 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://5w7hb8gi10g2"]
+
+[ext_resource type="Texture2D" uid="uid://dah84bcly2gih" path="res://assets/ui/holo_book.png" id="1_gdlui"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcpls"]
+atlas = ExtResource("1_gdlui")
+region = Rect2(400, 272, 64, 48)
+
+[resource]
+texture = SubResource("AtlasTexture_jcpls")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1

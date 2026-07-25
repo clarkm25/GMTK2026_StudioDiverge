@@ -1,8 +1,6 @@
-[gd_scene format=4 uid="uid://bwk10ipc6gbl2"]
+[gd_scene format=3 uid="uid://bwk10ipc6gbl2"]
 
-[ext_resource type="Texture2D" uid="uid://iq0xg7h4mv5d" path="res://assets/space_background_variation1.png" id="1_2o28a"]
 [ext_resource type="Script" uid="uid://blypotl47w558" path="res://game/main.gd" id="1_v2tjf"]
-[ext_resource type="Texture2D" uid="uid://blp73apq1vbj0" path="res://assets/space_background_variation2.png" id="2_8gaax"]
 [ext_resource type="Texture2D" uid="uid://cywl32bw2jh1x" path="res://icon.svg" id="2_ovcs7"]
 [ext_resource type="Script" uid="uid://bc7wxvqfc11x5" path="res://game/paralax.gd" id="3_ovcs7"]
 [ext_resource type="Texture2D" uid="uid://duu8uii1w4aal" path="res://assets/paralax/nebulae_dark.png" id="4_8b68q"]
@@ -17,30 +15,17 @@
 [ext_resource type="Texture2D" uid="uid://2uvfnvvdpn2j" path="res://assets/paralax/planets.png" id="8_ovcs7"]
 [ext_resource type="PackedScene" uid="uid://du2nhthdkn44c" path="res://game objects/interactables/FuelTank.tscn" id="10_0btcf"]
 [ext_resource type="PackedScene" uid="uid://diw88wg5nuwhr" path="res://game objects/interactables/Burner.tscn" id="12_6lgcj"]
+[ext_resource type="PackedScene" uid="uid://ctbtxij4b2f4a" path="res://menus/Hud.tscn" id="13_8b68q"]
 [ext_resource type="AudioStream" uid="uid://b8uum7dywsgeg" path="res://assets/sfx/beyond_the_star_gate.ogg" id="14_ovcs7"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8gaax"]
-texture = ExtResource("1_2o28a")
-texture_region_size = Vector2i(512, 512)
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2fjjk"]
-texture = ExtResource("2_8gaax")
-texture_region_size = Vector2i(512, 512)
-0:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_alqjt"]
-tile_size = Vector2i(512, 512)
-sources/6 = SubResource("TileSetAtlasSource_8gaax")
-sources/7 = SubResource("TileSetAtlasSource_2fjjk")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_alqjt"]
 bg_color = Color(0.26666668, 0.26666668, 0.26666668, 0.7411765)
 
-[node name="Main" type="Node2D" unique_id=1078661697 node_paths=PackedStringArray("fade_trans")]
+[node name="Main" type="Node2D" unique_id=1078661697 node_paths=PackedStringArray("fade_trans", "options")]
 y_sort_enabled = true
 script = ExtResource("1_v2tjf")
-fade_trans = NodePath("CanvasLayer/Control/FadeTransition")
+fade_trans = NodePath("CanvasLayer/Menu/FadeTransition")
+options = NodePath("CanvasLayer/Menu/Options")
 
 [node name="Space" type="Node2D" parent="." unique_id=1710184545]
 z_index = -1
@@ -215,16 +200,13 @@ region_rect = Rect2(0, 0, 640, 360)
 script = ExtResource("3_ovcs7")
 layer = 5
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=849648690]
-visible = false
-tile_map_data = PackedByteArray("AAAAAAAABgAAAAAAAAACAAAABgAAAAAAAAACAAEABgAAAAAAAAABAAEABgAAAAAAAAAAAAEABgAAAAAAAAD//wEABgAAAAAAAAD//wAABgAAAAAAAAD/////BwAAAAAAAFAAAP//BgAAAAAAAAABAP//BgAAAAAAAAACAP//BgAAAAAAAAABAAAABwAAAAAAAAA=")
-tile_set = SubResource("TileSet_alqjt")
-
 [node name="Player" parent="." unique_id=325630486 instance=ExtResource("5_madmh")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=319405524]
 
-[node name="Control" type="CenterContainer" parent="CanvasLayer" unique_id=486035342]
+[node name="Hud" parent="CanvasLayer" unique_id=1916421565 instance=ExtResource("13_8b68q")]
+
+[node name="Menu" type="CenterContainer" parent="CanvasLayer" unique_id=486035342]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -233,122 +215,106 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Options" parent="CanvasLayer/Control" unique_id=420492217 instance=ExtResource("4_ljq5a")]
+[node name="Options" parent="CanvasLayer/Menu" unique_id=420492217 instance=ExtResource("4_ljq5a")]
 visible = false
 layout_mode = 2
 
-[node name="FadeTransition" parent="CanvasLayer/Control" unique_id=1486688309 instance=ExtResource("4_madmh")]
+[node name="FadeTransition" parent="CanvasLayer/Menu" unique_id=1486688309 instance=ExtResource("4_madmh")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Music" type="AudioStreamPlayer" parent="CanvasLayer/Control" unique_id=54214621]
+[node name="Music" type="AudioStreamPlayer" parent="CanvasLayer/Menu" unique_id=54214621]
 unique_name_in_owner = true
 process_mode = 3
 stream = ExtResource("14_ovcs7")
 autoplay = true
 bus = &"Music"
 
-[node name="SFX" type="AudioStreamPlayer" parent="CanvasLayer/Control" unique_id=1082831769]
+[node name="SFX" type="AudioStreamPlayer" parent="CanvasLayer/Menu" unique_id=1082831769]
 process_mode = 3
 bus = &"SFX"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1580460673]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="DebugUI" type="GridContainer" parent="CanvasLayer" unique_id=1710444227]
+offset_left = 22.0
 offset_top = 8.0
-offset_bottom = -319.00012
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="DebugUI" type="GridContainer" parent="CanvasLayer/VBoxContainer" unique_id=1710444227]
-layout_mode = 2
+offset_right = 617.0
+offset_bottom = 30.0
 size_flags_horizontal = 4
 theme_override_constants/h_separation = 12
 columns = 3
 script = ExtResource("4_yo8gm")
 
-[node name="DebugButtons" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/DebugUI" unique_id=1374654344]
+[node name="DebugButtons" type="HBoxContainer" parent="CanvasLayer/DebugUI" unique_id=1374654344]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="DebugAmountChange" type="LineEdit" parent="CanvasLayer/VBoxContainer/DebugUI/DebugButtons" unique_id=405028279]
+[node name="DebugAmountChange" type="LineEdit" parent="CanvasLayer/DebugUI/DebugButtons" unique_id=405028279]
 custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
 theme = ExtResource("5_fk7ia")
 theme_override_font_sizes/font_size = 10
 placeholder_text = "Amount to add..."
 
-[node name="DebugSpeedChange" type="Button" parent="CanvasLayer/VBoxContainer/DebugUI/DebugButtons" unique_id=1999921183]
+[node name="DebugSpeedChange" type="Button" parent="CanvasLayer/DebugUI/DebugButtons" unique_id=1999921183]
 layout_mode = 2
 theme = ExtResource("5_fk7ia")
 theme_override_font_sizes/font_size = 10
 text = "+Speed"
 
-[node name="DebugAccelChange" type="Button" parent="CanvasLayer/VBoxContainer/DebugUI/DebugButtons" unique_id=657410042]
+[node name="DebugAccelChange" type="Button" parent="CanvasLayer/DebugUI/DebugButtons" unique_id=657410042]
 layout_mode = 2
 theme = ExtResource("5_fk7ia")
 theme_override_font_sizes/font_size = 10
 text = "+Accel"
 
-[node name="DebugDistanceChange" type="Button" parent="CanvasLayer/VBoxContainer/DebugUI/DebugButtons" unique_id=1249177535]
+[node name="DebugDistanceChange" type="Button" parent="CanvasLayer/DebugUI/DebugButtons" unique_id=1249177535]
 layout_mode = 2
 theme = ExtResource("5_fk7ia")
 theme_override_font_sizes/font_size = 10
 text = "+Distance"
 
-[node name="DebugDisplay" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/DebugUI" unique_id=1059363655]
+[node name="DebugDisplay" type="HBoxContainer" parent="CanvasLayer/DebugUI" unique_id=1059363655]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 0
 
-[node name="SpeedLabel" type="Label" parent="CanvasLayer/VBoxContainer/DebugUI/DebugDisplay" unique_id=739170796]
+[node name="SpeedLabel" type="Label" parent="CanvasLayer/DebugUI/DebugDisplay" unique_id=739170796]
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxFlat_alqjt")
 text = "Speed:"
 
-[node name="SpeedField" type="Label" parent="CanvasLayer/VBoxContainer/DebugUI/DebugDisplay" unique_id=757630125]
+[node name="SpeedField" type="Label" parent="CanvasLayer/DebugUI/DebugDisplay" unique_id=757630125]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 
-[node name="AccelLabel" type="Label" parent="CanvasLayer/VBoxContainer/DebugUI/DebugDisplay" unique_id=1503580674]
+[node name="AccelLabel" type="Label" parent="CanvasLayer/DebugUI/DebugDisplay" unique_id=1503580674]
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxFlat_alqjt")
 text = "Accel:"
 
-[node name="AccelField" type="Label" parent="CanvasLayer/VBoxContainer/DebugUI/DebugDisplay" unique_id=134526697]
+[node name="AccelField" type="Label" parent="CanvasLayer/DebugUI/DebugDisplay" unique_id=134526697]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 
-[node name="DistHomeLabel" type="Label" parent="CanvasLayer/VBoxContainer/DebugUI/DebugDisplay" unique_id=1846562924]
+[node name="DistHomeLabel" type="Label" parent="CanvasLayer/DebugUI/DebugDisplay" unique_id=1846562924]
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 theme_override_styles/normal = SubResource("StyleBoxFlat_alqjt")
 text = "Distance to Home:"
 
-[node name="DistHomeField" type="Label" parent="CanvasLayer/VBoxContainer/DebugUI/DebugDisplay" unique_id=1844366423]
+[node name="DistHomeField" type="Label" parent="CanvasLayer/DebugUI/DebugDisplay" unique_id=1844366423]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/VBoxContainer" unique_id=330930139]
-layout_mode = 2
-size_flags_vertical = 3
-alignment = 1
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/VBoxContainer" unique_id=1779634772]
-layout_mode = 2
-size_flags_vertical = 3
-alignment = 1
 
 [node name="FuelTank" parent="." unique_id=727356559 instance=ExtResource("10_0btcf")]
 position = Vector2(152, 113)
@@ -356,6 +322,6 @@ position = Vector2(152, 113)
 [node name="Burner" parent="." unique_id=64445812 instance=ExtResource("12_6lgcj")]
 position = Vector2(-129, 156)
 
-[connection signal="pressed" from="CanvasLayer/VBoxContainer/DebugUI/DebugButtons/DebugSpeedChange" to="CanvasLayer/VBoxContainer/DebugUI" method="_on_debug_speed_change_pressed"]
-[connection signal="pressed" from="CanvasLayer/VBoxContainer/DebugUI/DebugButtons/DebugAccelChange" to="CanvasLayer/VBoxContainer/DebugUI" method="_on_debug_accel_change_pressed"]
-[connection signal="pressed" from="CanvasLayer/VBoxContainer/DebugUI/DebugButtons/DebugDistanceChange" to="CanvasLayer/VBoxContainer/DebugUI" method="_on_debug_distance_change_pressed"]
+[connection signal="pressed" from="CanvasLayer/DebugUI/DebugButtons/DebugSpeedChange" to="CanvasLayer/DebugUI" method="_on_debug_speed_change_pressed"]
+[connection signal="pressed" from="CanvasLayer/DebugUI/DebugButtons/DebugAccelChange" to="CanvasLayer/DebugUI" method="_on_debug_accel_change_pressed"]
+[connection signal="pressed" from="CanvasLayer/DebugUI/DebugButtons/DebugDistanceChange" to="CanvasLayer/DebugUI" method="_on_debug_distance_change_pressed"]

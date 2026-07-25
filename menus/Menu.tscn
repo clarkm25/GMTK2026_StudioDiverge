@@ -1,9 +1,27 @@
-[gd_scene format=3 uid="uid://ivl5ctdo86id"]
+[gd_scene format=4 uid="uid://ivl5ctdo86id"]
 
+[ext_resource type="Theme" uid="uid://dcsqog7uwu0bc" path="res://menus/holo_theme.tres" id="1_04c6o"]
 [ext_resource type="Script" uid="uid://bv2ja00amryui" path="res://menus/menu.gd" id="1_gdhhp"]
 [ext_resource type="PackedScene" uid="uid://drl77ec7v0xvo" path="res://menus/FadeTransition.tscn" id="2_8djp2"]
 [ext_resource type="PackedScene" uid="uid://dvvwk5i17yrcb" path="res://menus/Options.tscn" id="3_8djp2"]
+[ext_resource type="Texture2D" uid="uid://iq0xg7h4mv5d" path="res://assets/space_background_variation1.png" id="3_whe8r"]
 [ext_resource type="AudioStream" uid="uid://bnue76wf68yfp" path="res://assets/sfx/orbital_scan.ogg" id="4_jv27f"]
+[ext_resource type="Texture2D" uid="uid://blp73apq1vbj0" path="res://assets/space_background_variation2.png" id="4_pvwss"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_02f7l"]
+texture = ExtResource("3_whe8r")
+texture_region_size = Vector2i(512, 512)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jc8hk"]
+texture = ExtResource("4_pvwss")
+texture_region_size = Vector2i(512, 512)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_geawv"]
+tile_size = Vector2i(512, 512)
+sources/6 = SubResource("TileSetAtlasSource_02f7l")
+sources/7 = SubResource("TileSetAtlasSource_jc8hk")
 
 [node name="Menu" type="Control" unique_id=426395188]
 layout_mode = 3
@@ -14,33 +32,57 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("1_04c6o")
 script = ExtResource("1_gdhhp")
 
-[node name="ButtonManager" type="VBoxContainer" parent="." unique_id=665016663]
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1360165184]
+position = Vector2(-185, 13)
+tile_map_data = PackedByteArray("AAAAAAAABgAAAAAAAAACAAAABgAAAAAAAAACAAEABgAAAAAAAAABAAEABgAAAAAAAAAAAAEABgAAAAAAAAD//wEABgAAAAAAAAD//wAABgAAAAAAAAD/////BwAAAAAAAFAAAP//BgAAAAAAAAABAP//BgAAAAAAAAACAP//BgAAAAAAAAABAAAABwAAAAAAAAA=")
+tile_set = SubResource("TileSet_geawv")
+
+[node name="Panel" type="Panel" parent="." unique_id=1217221794]
+custom_minimum_size = Vector2(63.025, 206.785)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -35.0
-offset_top = -71.5
-offset_right = 35.0
-offset_bottom = 71.5
+offset_left = -81.422516
+offset_top = -103.3925
+offset_right = 81.422485
+offset_bottom = 103.39252
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=665016663]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = -77.5
+offset_right = 37.0
+offset_bottom = 77.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 25
 
-[node name="Start" type="Button" parent="ButtonManager" unique_id=1993655254]
+[node name="Start" type="Button" parent="Panel/VBoxContainer" unique_id=1993655254]
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Start"
 
-[node name="Options" type="Button" parent="ButtonManager" unique_id=867611182]
+[node name="Options" type="Button" parent="Panel/VBoxContainer" unique_id=867611182]
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Options"
 
-[node name="Quit" type="Button" parent="ButtonManager" unique_id=232390849]
+[node name="Quit" type="Button" parent="Panel/VBoxContainer" unique_id=232390849]
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Quit"
 
 [node name="FadeTransition" parent="." unique_id=1486688309 instance=ExtResource("2_8djp2")]
@@ -70,7 +112,6 @@ stream = ExtResource("4_jv27f")
 autoplay = true
 bus = &"Music"
 
-[connection signal="pressed" from="ButtonManager/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="ButtonManager/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="ButtonManager/Quit" to="." method="_on_quit_pressed"]
-[connection signal="timeout" from="FadeTransition/FadeTimer" to="." method="_on_fade_timer_timeout"]
+[connection signal="pressed" from="Panel/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
