@@ -27,22 +27,24 @@ func _on_interactable_2d_not_closest(interactor):
 func _on_interactable_2d_interacted(interactor):
 	print("hi")
 	var interactor_parent : CharacterBody2D = interactor.get_parent()
-	if interactor_parent.name == "Player":
-		# Activate ship burner
-		var stats : PickupStats = interactor_parent.current_item_stats
-		Game.ship_accel = stats.acceleration_given
-		burn_time = stats.burn_time
-		
-		# Wipe player stat info
-		interactor_parent.current_item_stats = null
-		
-		# Steal hat
-		var player_item_slot : Marker2D = interactor_parent.item_slot
-		var item_sprite : Node2D = player_item_slot.get_child(0)
-		item_sprite.reparent(item_slot)
-		item_sprite.position = Vector2.ZERO
-		heat_up_sprite()
-		
+	if interactor_parent.name != "Player": return
+	
+	# Activate ship burner
+	var stats : PickupStats = interactor_parent.current_item_stats
+	if stats == null: return
+	Game.ship_accel = stats.acceleration_given
+	burn_time = stats.burn_time
+	
+	# Wipe player stat info
+	interactor_parent.current_item_stats = null
+	
+	# Steal hat
+	var player_item_slot : Marker2D = interactor_parent.item_slot
+	var item_sprite : Node2D = player_item_slot.get_child(0)
+	item_sprite.reparent(item_slot)
+	item_sprite.position = Vector2.ZERO
+	heat_up_sprite()
+
 func _physics_process(delta):
 	burn_time = clamp(burn_time - delta, 0, 100000000)
 	if burn_time <= 0:
