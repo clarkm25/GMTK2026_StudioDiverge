@@ -14,4 +14,9 @@ func _ready() -> void:
 		if pickup.item_stats:
 			mass_sum += pickup.item_stats.mass
 	Game.ship_mass = mass_sum
+
+func _physics_process(delta: float) -> void:
+	var space = $Space
+	var player = $Player
 	
+	space.global_position = player.global_position
