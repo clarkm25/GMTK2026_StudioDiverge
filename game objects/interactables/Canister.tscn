@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://bkrfss6kekpmc"]
+
+[ext_resource type="Script" uid="uid://dlmamkhyegy8a" path="res://game objects/interactables/ground_item.gd" id="1_bqcg2"]
+[ext_resource type="PackedScene" uid="uid://ctfgdiwv56qxa" path="res://game objects/interactables/CanisterHead.tscn" id="2_cxufn"]
+[ext_resource type="Script" uid="uid://ccwuoh41qow4t" path="res://game objects/interactables/pickup.gd" id="2_pd4ey"]
+[ext_resource type="Script" uid="uid://b11n8h556ja7" path="res://addons/interaction_system/systems/interaction/interactable/interactable_2d.gd" id="3_cxufn"]
+[ext_resource type="Material" uid="uid://bnnxf44tkxjvp" path="res://assets/shine_material.tres" id="4_qvt25"]
+[ext_resource type="Texture2D" uid="uid://bikniicgc7eiy" path="res://assets/spaceship_tileset/tilesets/Canister.png" id="6_cxufn"]
+
+[sub_resource type="Resource" id="Resource_qvt25"]
+script = ExtResource("2_pd4ey")
+name = "Canister"
+burn_time = 4.0
+acceleration_given = 1.0
+mass = 0.3
+scene_path = "res://game objects/interactables/Canister.tscn"
+metadata/_custom_type_script = "uid://ccwuoh41qow4t"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qvt25"]
+radius = 11.0
+height = 52.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5c03v"]
+radius = 5.0
+height = 42.0
+
+[node name="Canister" type="Node2D" unique_id=727356559 node_paths=PackedStringArray("sprite")]
+y_sort_enabled = true
+script = ExtResource("1_bqcg2")
+sprite = NodePath("Sprite2D")
+head_sprite = ExtResource("2_cxufn")
+item_stats = SubResource("Resource_qvt25")
+
+[node name="Interactable2D" type="Area2D" parent="." unique_id=1225153443]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("3_cxufn")
+metadata/_custom_type_script = "uid://b11n8h556ja7"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable2D" unique_id=1360443931]
+position = Vector2(1, -25)
+shape = SubResource("CapsuleShape2D_qvt25")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=121652414]
+material = ExtResource("4_qvt25")
+texture = ExtResource("6_cxufn")
+offset = Vector2(1.5, -24.5)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1776431156]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1929746960]
+position = Vector2(0, -23)
+rotation = 0.09424778
+shape = SubResource("CapsuleShape2D_5c03v")
+
+[connection signal="closest" from="Interactable2D" to="." method="_on_interactable_2d_closest"]
+[connection signal="interacted" from="Interactable2D" to="." method="_on_interactable_2d_interacted"]
+[connection signal="not_closest" from="Interactable2D" to="." method="_on_interactable_2d_not_closest"]

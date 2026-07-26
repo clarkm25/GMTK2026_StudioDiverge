@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cjg2y4n82o4q1"]
+
+[ext_resource type="Texture2D" uid="uid://bgkw8551ypmf" path="res://assets/spaceship_tileset/tilesets/Suitcase.png" id="1_q2y0y"]
+
+[node name="SuitcaseHead" type="Node2D" unique_id=1317360549]
+y_sort_enabled = true
+
+[node name="Node2D" type="Node2D" parent="." unique_id=983062147]
+position = Vector2(0, 60)
+rotation = 4.712389
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D" unique_id=26595561]
+position = Vector2(65, 0)
+texture = ExtResource("1_q2y0y")

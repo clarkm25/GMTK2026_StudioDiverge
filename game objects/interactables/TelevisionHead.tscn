@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bqaw6xhti3bb2"]
+
+[ext_resource type="Texture2D" uid="uid://xjbxbxtekb5r" path="res://assets/spaceship_tileset/tilesets/Television.png" id="1_lls3i"]
+
+[node name="TelevisionHead" type="Node2D" unique_id=1317360549]
+y_sort_enabled = true
+
+[node name="Node2D" type="Node2D" parent="." unique_id=983062147]
+position = Vector2(0, 60)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D" unique_id=26595561]
+position = Vector2(5, -60)
+texture = ExtResource("1_lls3i")

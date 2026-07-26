@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://ctfgdiwv56qxa"]
+
+[ext_resource type="Texture2D" uid="uid://bikniicgc7eiy" path="res://assets/spaceship_tileset/tilesets/Canister.png" id="1_abvlt"]
+
+[node name="Canister" type="Node2D" unique_id=1317360549]
+y_sort_enabled = true
+
+[node name="Node2D" type="Node2D" parent="." unique_id=983062147]
+position = Vector2(0, 60)
+rotation = 1.5707964
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D" unique_id=26595561]
+position = Vector2(-60, 0)
+texture = ExtResource("1_abvlt")

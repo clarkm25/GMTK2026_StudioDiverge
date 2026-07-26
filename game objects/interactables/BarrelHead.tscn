@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://corwfuhindwgw"]
+
+[ext_resource type="Texture2D" uid="uid://b4wj74ub7llik" path="res://assets/spaceship_tileset/tilesets/Barrel.png" id="1_ndoek"]
+
+[node name="BarrelHead" type="Node2D" unique_id=1317360549]
+y_sort_enabled = true
+
+[node name="Node2D" type="Node2D" parent="." unique_id=983062147]
+position = Vector2(0, 60)
+rotation = 1.5707964
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D" unique_id=26595561]
+position = Vector2(-68, 0)
+texture = ExtResource("1_ndoek")
