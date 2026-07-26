@@ -23,7 +23,10 @@ func _on_interactable_2d_closest(interactor):
 func _on_interactable_2d_not_closest(interactor):
 	stop_shine()
 
+@onready var in_use = false
 func _on_interactable_2d_interacted(interactor):
+	if in_use: return
+	in_use = true
 	print("ignite")
 	var interactor_parent : CharacterBody2D = interactor.get_parent()
 	if interactor_parent.name != "Player": return
@@ -55,5 +58,8 @@ func heat_up_sprite():
 	var tween = get_tree().create_tween()
 	tween.tween_property(item_slot, "modulate", Color(18.892, 3.504, 1.459), burn_time)
 	tween.tween_property($CPUParticles2D, "emitting", true, 0)
-	tween.tween_callback(item_sprite.queue_free)
-		
+	tween.tween_callback(free_and_in_use.bind(item_sprite))
+
+func free_and_in_use(item_sprite):
+	item_sprite.queue_free()
+	in_use = false
