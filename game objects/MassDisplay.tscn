@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bqbtcgnn7x1x1"]
+
+[ext_resource type="Shader" uid="uid://bt0dat405tt27" path="res://game objects/Player.gdshader" id="1_gpbie"]
+[ext_resource type="Script" uid="uid://bp5i63p67qenw" path="res://game objects/mass_display.gd" id="1_tv32f"]
+[ext_resource type="Texture2D" uid="uid://bjbjgiik2gm67" path="res://assets/spaceship_tileset/animated/!Spaceship_decoration/!Spaceship_decoration-6.tres" id="2_tv32f"]
+[ext_resource type="FontFile" uid="uid://ceko61c2rt4xi" path="res://assets/fonts/bringbold_nineties/Bringbold Nineties Demo.ttf" id="4_l1n2h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lijbj"]
+shader = ExtResource("1_gpbie")
+
+[node name="MassDisplay" type="Node2D" unique_id=1768773653 node_paths=PackedStringArray("cargo_mass")]
+script = ExtResource("1_tv32f")
+cargo_mass = NodePath("Mass")
+
+[node name="!spaceshipDecoration6" type="Sprite2D" parent="." unique_id=1045184839]
+material = SubResource("ShaderMaterial_lijbj")
+position = Vector2(0, 54)
+scale = Vector2(2, 2)
+texture = ExtResource("2_tv32f")
+centered = false
+offset = Vector2(-4, -72)
+
+[node name="Mass" type="Label" parent="." unique_id=883523715]
+offset_left = 7.0
+offset_top = 23.0
+offset_right = 75.0
+offset_bottom = 39.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="." unique_id=1160934745]
+offset_left = 7.0
+offset_top = 12.0
+offset_right = 75.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(0.5254902, 0.28235295, 0.7372549, 1)
+theme_override_fonts/font = ExtResource("4_l1n2h")
+theme_override_font_sizes/font_size = 8
+text = "Total Cargo Mass"
+horizontal_alignment = 1

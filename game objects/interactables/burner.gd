@@ -32,6 +32,7 @@ func _on_interactable_2d_interacted(interactor):
 	var stats : PickupStats = interactor_parent.current_item_stats
 	if stats == null: return
 	Game.ship_accel = stats.acceleration_given
+	Game.ship_mass -= stats.mass
 	burn_time = stats.burn_time
 	
 	# Wipe player stat info

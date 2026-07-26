@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://jvhr0du7wsvr" path="res://assets/sfx/airlock_door.ogg" id="5_2ntsy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_php4q"]
-size = Vector2(57, 48)
+size = Vector2(57, 79)
 
 [sub_resource type="Animation" id="Animation_smdab"]
 length = 0.001
@@ -71,22 +71,24 @@ item_slot = NodePath("ItemSlot")
 audio_player = NodePath("DoorSFXPlayer")
 
 [node name="ItemSlot" type="Marker2D" parent="." unique_id=1335860595]
-position = Vector2(0, -4)
+position = Vector2(0, -44)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1299506893]
 material = ExtResource("2_ovbyd")
 texture = ExtResource("2_smdab")
+offset = Vector2(0, -40)
 hframes = 3
 vframes = 3
 
 [node name="Interactable2D" type="Area2D" parent="." unique_id=879816589]
+position = Vector2(0, -40)
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("3_ovbyd")
 metadata/_custom_type_script = "uid://b11n8h556ja7"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable2D" unique_id=1111055323]
-position = Vector2(0.5, 14)
+position = Vector2(0, 29)
 shape = SubResource("RectangleShape2D_php4q")
 
 [node name="DoorSFXPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1428619671]

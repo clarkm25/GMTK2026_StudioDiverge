@@ -28,6 +28,9 @@
 [ext_resource type="Texture2D" uid="uid://cbhe3c3hag2kl" path="res://assets/spaceship_tileset/animated/!$Light_1/!$Light_1-3.tres" id="26_uho1x"]
 [ext_resource type="Texture2D" uid="uid://dxiikal6m53w3" path="res://assets/spaceship_tileset/animated/!Spaceship_decoration/!Spaceship_decoration-24.tres" id="28_c4tq3"]
 [ext_resource type="PackedScene" uid="uid://diw88wg5nuwhr" path="res://game objects/interactables/Burner.tscn" id="28_uho1x"]
+[ext_resource type="PackedScene" uid="uid://bqbtcgnn7x1x1" path="res://game objects/MassDisplay.tscn" id="29_c4tq3"]
+[ext_resource type="PackedScene" uid="uid://bm66lbffignes" path="res://game objects/SpeedDisplay.tscn" id="30_lheb1"]
+[ext_resource type="PackedScene" uid="uid://b5krjx6bv5owl" path="res://game objects/interactables/Airlock.tscn" id="31_sk1w7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uho1x"]
 size = Vector2(479, 218)
@@ -55,6 +58,24 @@ size = Vector2(433.26172, 75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_alqjt"]
 size = Vector2(192.5, 340)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rwl5v"]
+size = Vector2(96, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_amiu5"]
+size = Vector2(48, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jv2yr"]
+size = Vector2(29, 31.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v5d3l"]
+size = Vector2(41.75, 135.375)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y5k5r"]
+size = Vector2(41.75, 93)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0npuf"]
+size = Vector2(41.75, 46.34375)
 
 [node name="Spaceship" type="Node2D" unique_id=1488593352]
 y_sort_enabled = true
@@ -162,6 +183,9 @@ y_sort_enabled = true
 tile_map_data = PackedByteArray("AAD///7/DQAHAAMAAAD/////DQAHAAQAAAAAAP7/DQAHAAMAAAAAAP//DQAHAAQAAAABAP3/DgADAAQAAAABAP7/DgADAAUAAAD//wEADQABAAcAAAD//wAADQABAAYAAAAAAAAADQADAAYAAAABAAAADQADAAMAAAD+/wAADQADAAMAAAACAAAADAAKAAcAAAACAAEADAAKAAcAAAACAAIADAAKAAgAAAD//wIADAAJAAgAAAD+/wIADAAJAAgAAAD9/wIADAAIAAgAAAAAAAEADQADAAcAAAD9/wEADAAIAAcAAAD9/wAADAAIAAcAAAAAAAMADAAKAAgAAAABAAIADAAOAAcAAAAAAAIADAANAAcAAAD//wMADAAPAAkAAAD//wQADAAPAAoAAAANABoADgANAAsAAAANABsADgANAAwAAAA=")
 tile_set = ExtResource("2_7b3r5")
 metadata/_edit_lock_ = true
+
+[node name="Airlock" parent="Objects" unique_id=73795755 instance=ExtResource("31_sk1w7")]
+position = Vector2(0, 659.5)
 
 [node name="ConsolesMain3" parent="Objects" unique_id=736209698 instance=ExtResource("6_6s8ki")]
 position = Vector2(-72, 0)
@@ -325,6 +349,33 @@ frame_progress = 0.0
 [node name="Lights" type="Node2D" parent="." unique_id=555990317]
 z_index = 1
 
+[node name="MassDisplay" parent="Lights" unique_id=1768773653 instance=ExtResource("29_c4tq3")]
+position = Vector2(55, 133)
+
+[node name="MassDisplay2" parent="Lights" unique_id=1351292876 instance=ExtResource("29_c4tq3")]
+position = Vector2(55, 133)
+
+[node name="MassDisplay3" parent="Lights" unique_id=76239271 instance=ExtResource("29_c4tq3")]
+position = Vector2(-137, 593)
+
+[node name="MassDisplay4" parent="Lights" unique_id=1424137100 instance=ExtResource("29_c4tq3")]
+position = Vector2(272, 899)
+
+[node name="SpeedDisplay" parent="Lights" unique_id=200336472 instance=ExtResource("30_lheb1")]
+position = Vector2(559, 897)
+
+[node name="SpeedDisplay2" parent="Lights" unique_id=1178040072 instance=ExtResource("30_lheb1")]
+position = Vector2(391, 552)
+
+[node name="SpeedDisplay3" parent="Lights" unique_id=1615575324 instance=ExtResource("30_lheb1")]
+position = Vector2(-14, 185)
+
+[node name="SpeedDisplay4" parent="Lights" unique_id=796829537 instance=ExtResource("30_lheb1")]
+position = Vector2(56, 599)
+
+[node name="SpeedDisplay5" parent="Lights" unique_id=1126881932 instance=ExtResource("30_lheb1")]
+position = Vector2(-474, 600)
+
 [node name="!$light20" type="Sprite2D" parent="Lights" unique_id=2066580203]
 position = Vector2(-167, 76)
 texture = ExtResource("15_yo40t")
@@ -449,6 +500,43 @@ shape = SubResource("RectangleShape2D_wwne7")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Burner/StaticBody2D" unique_id=1623382481]
 position = Vector2(-431.75, 502)
 shape = SubResource("RectangleShape2D_alqjt")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Burner/StaticBody2D" unique_id=146113782]
+position = Vector2(0, 76)
+shape = SubResource("RectangleShape2D_rwl5v")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="Burner/StaticBody2D" unique_id=1314875895]
+position = Vector2(72, -7.5)
+shape = SubResource("RectangleShape2D_amiu5")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="Burner/StaticBody2D" unique_id=377782558]
+position = Vector2(-72, -12)
+shape = SubResource("RectangleShape2D_amiu5")
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="Burner/StaticBody2D" unique_id=969265222]
+position = Vector2(-23.5, -48.25)
+shape = SubResource("RectangleShape2D_jv2yr")
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="Burner/StaticBody2D" unique_id=1769486434]
+position = Vector2(25, -49)
+shape = SubResource("RectangleShape2D_jv2yr")
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="Burner/StaticBody2D" unique_id=147393357]
+position = Vector2(-168.25, 285.625)
+shape = SubResource("RectangleShape2D_v5d3l")
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="Burner/StaticBody2D" unique_id=2056398184]
+position = Vector2(168, 285.5)
+shape = SubResource("RectangleShape2D_y5k5r")
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="Burner/StaticBody2D" unique_id=1539747740]
+position = Vector2(-266.125, 553.3125)
+shape = SubResource("RectangleShape2D_v5d3l")
+
+[node name="CollisionShape2D18" type="CollisionShape2D" parent="Burner/StaticBody2D" unique_id=634762421]
+z_index = 1
+position = Vector2(600, 1173.1719)
+shape = SubResource("RectangleShape2D_0npuf")
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Burner/StaticBody2D" unique_id=1628257995]
 z_index = 1

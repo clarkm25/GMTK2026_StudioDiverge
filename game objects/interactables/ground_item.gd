@@ -4,6 +4,9 @@ extends Node2D
 @export var head_sprite : PackedScene
 @export var item_stats : PickupStats
 
+func _ready():
+	self.add_to_group("GroundItem")
+	
 func start_shine(time : float = 1.0):
 	var tween = create_tween()
 	tween.tween_method(set_shader_alpha, 0.0, 1.0, time)

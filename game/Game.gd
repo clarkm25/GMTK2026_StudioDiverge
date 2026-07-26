@@ -1,8 +1,23 @@
 extends Node2D
 
-var ship_speed : float
+signal mass_updated
+signal speed_updated
+
+var ship_speed : float:
+	get():
+		return ship_speed
+	set(value):
+		ship_speed = clamp(value, 1, INF)
+		speed_updated.emit()
 var ship_accel : float
-var ship_mass : float
+
+var ship_mass : float:
+	get():
+		return ship_mass
+	set(value):
+		ship_mass = clamp(value, 1.0, INF)
+		mass_updated.emit()
+	
 ## Percentage, represented as 0-1 decimal (i.e., 0.7777=77.77%)
 var ship_integrity : float:
 	get():

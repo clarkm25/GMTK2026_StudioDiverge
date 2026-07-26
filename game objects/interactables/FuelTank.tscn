@@ -11,8 +11,8 @@
 script = ExtResource("3_itngf")
 name = "Fuel Tank"
 burn_time = 5.0
-acceleration_given = 2.0
-mass = 1.0
+acceleration_given = 100.0
+mass = 50.0
 scene_path = "res://game objects/interactables/FuelTank.tscn"
 metadata/_custom_type_script = "uid://ccwuoh41qow4t"
 

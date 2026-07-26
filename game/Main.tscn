@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://cnm7qs76cqmak" path="res://game objects/interactables/FireExtinguisher.tscn" id="19_2vqt1"]
 [ext_resource type="PackedScene" uid="uid://bcumx40qc7xfm" path="res://game objects/interactables/Barrel.tscn" id="20_4lvxf"]
 [ext_resource type="PackedScene" uid="uid://nbt6yihiq5jv" path="res://game objects/interactables/Suitcase.tscn" id="22_m8yuc"]
+[ext_resource type="PackedScene" uid="uid://bqbtcgnn7x1x1" path="res://game objects/MassDisplay.tscn" id="23_urty6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_alqjt"]
 bg_color = Color(0.26666668, 0.26666668, 0.26666668, 0.7411765)
@@ -325,6 +326,9 @@ position = Vector2(31, 108)
 
 [node name="Suitcase" parent="." unique_id=2103207389 instance=ExtResource("22_m8yuc")]
 position = Vector2(272, 160)
+
+[node name="MassDisplay" parent="." unique_id=1768773653 instance=ExtResource("23_urty6")]
+position = Vector2(104, -82)
 
 [connection signal="pressed" from="CanvasLayer/DebugUI/DebugButtons/DebugSpeedChange" to="CanvasLayer/DebugUI" method="_on_debug_speed_change_pressed"]
 [connection signal="pressed" from="CanvasLayer/DebugUI/DebugButtons/DebugAccelChange" to="CanvasLayer/DebugUI" method="_on_debug_accel_change_pressed"]
