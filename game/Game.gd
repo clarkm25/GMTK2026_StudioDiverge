@@ -21,6 +21,7 @@ var fade_transition = preload("res://menus/FadeTransition.tscn")
 var music_player : AudioStreamPlayer
 
 func _ready():
+	home_distance = 10000.0
 	process_mode = ProcessMode.PROCESS_MODE_ALWAYS
 
 func _process(_delta):
@@ -56,6 +57,7 @@ func fade_in():
 	tween.tween_method(change_audio_bus_volume, -60.0, 0.0, 3.0)
 	
 	var canvas_layer := CanvasLayer.new()
+	canvas_layer.layer = 5
 	canvas_layer.add_to_group("FadeLayer")
 	add_child(canvas_layer)
 	
@@ -69,6 +71,7 @@ func fade_out():
 	tween.tween_method(change_audio_bus_volume, 0.0, -60.0, 1.5)
 	
 	var canvas_layer := CanvasLayer.new()
+	canvas_layer.layer = 5
 	canvas_layer.add_to_group("FadeLayer")
 	add_child(canvas_layer)
 	

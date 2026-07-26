@@ -534,7 +534,7 @@ region = Rect2(5, 0, 22, 48)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3g547"]
 
-[node name="Hud" type="Control" unique_id=1916421565]
+[node name="Hud" type="Control" unique_id=1916421565 node_paths=PackedStringArray("ship")]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
@@ -545,6 +545,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("1_1y1c8")
 script = ExtResource("2_w1lqo")
+ship = NodePath("Panel/VSlider")
 
 [node name="Panel" type="Panel" parent="." unique_id=1100523675]
 layout_mode = 1

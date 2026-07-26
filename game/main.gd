@@ -1,6 +1,5 @@
 extends Node2D
 
-@export var fade_trans : FadeTransition
 @export var options : Panel
 
 func _ready() -> void:
