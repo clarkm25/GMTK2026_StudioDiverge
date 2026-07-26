@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://b5krjx6bv5owl"]
+
+[ext_resource type="Script" uid="uid://chu7abofs7uqb" path="res://game objects/interactables/airlock.gd" id="1_jhw41"]
+[ext_resource type="Material" uid="uid://bnnxf44tkxjvp" path="res://assets/shine_material.tres" id="2_ovbyd"]
+[ext_resource type="Texture2D" uid="uid://c7yvkrpg1hmpd" path="res://assets/spaceship_tileset/animated/airlock.png" id="2_smdab"]
+[ext_resource type="Script" uid="uid://b11n8h556ja7" path="res://addons/interaction_system/systems/interaction/interactable/interactable_2d.gd" id="3_ovbyd"]
+[ext_resource type="AudioStream" uid="uid://jvhr0du7wsvr" path="res://assets/sfx/airlock_door.ogg" id="5_2ntsy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_php4q"]
+size = Vector2(57, 48)
+
+[sub_resource type="Animation" id="Animation_smdab"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ovbyd"]
+resource_name = "close"
+length = 0.3000033489797264
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [8, 0]
+}
+
+[sub_resource type="Animation" id="Animation_2ntsy"]
+resource_name = "open"
+length = 0.3000033489797264
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.30000335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 8]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eg6io"]
+_data = {
+&"RESET": SubResource("Animation_smdab"),
+&"close": SubResource("Animation_ovbyd"),
+&"open": SubResource("Animation_2ntsy")
+}
+
+[node name="Airlock" type="Node2D" unique_id=73795755 node_paths=PackedStringArray("sprite", "anim", "item_slot", "audio_player")]
+script = ExtResource("1_jhw41")
+sprite = NodePath("Sprite2D")
+anim = NodePath("AnimationPlayer")
+item_slot = NodePath("ItemSlot")
+audio_player = NodePath("DoorSFXPlayer")
+
+[node name="ItemSlot" type="Marker2D" parent="." unique_id=1335860595]
+position = Vector2(0, -4)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1299506893]
+material = ExtResource("2_ovbyd")
+texture = ExtResource("2_smdab")
+hframes = 3
+vframes = 3
+
+[node name="Interactable2D" type="Area2D" parent="." unique_id=879816589]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("3_ovbyd")
+metadata/_custom_type_script = "uid://b11n8h556ja7"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable2D" unique_id=1111055323]
+position = Vector2(0.5, 14)
+shape = SubResource("RectangleShape2D_php4q")
+
+[node name="DoorSFXPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1428619671]
+stream = ExtResource("5_2ntsy")
+bus = &"SFX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=918818647]
+libraries/ = SubResource("AnimationLibrary_eg6io")
+
+[connection signal="closest" from="Interactable2D" to="." method="_on_interactable_2d_closest"]
+[connection signal="interacted" from="Interactable2D" to="." method="_on_interactable_2d_interacted"]
+[connection signal="not_closest" from="Interactable2D" to="." method="_on_interactable_2d_not_closest"]
+[connection signal="animation_started" from="AnimationPlayer" to="." method="_on_animation_player_animation_started"]

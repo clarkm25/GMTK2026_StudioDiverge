@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cq1lywo1qspfs"]
+
+[node name="FuelTankHead" type="Node2D" unique_id=1317360549]
+y_sort_enabled = true
+
+[node name="Node2D" type="Node2D" parent="." unique_id=983062147]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D" unique_id=26595561]

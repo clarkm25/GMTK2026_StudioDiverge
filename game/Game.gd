@@ -2,6 +2,7 @@ extends Node2D
 
 var ship_speed : float
 var ship_accel : float
+var ship_mass : float
 ## Percentage, represented as 0-1 decimal (i.e., 0.7777=77.77%)
 var ship_integrity : float:
 	get():
@@ -20,16 +21,30 @@ var fade_transition = preload("res://menus/FadeTransition.tscn")
 
 var music_player : AudioStreamPlayer
 
+@onready var parallax_disabled = false
+
+func reset():
+	home_distance = init_dist
+	ship_mass = 10
+	ship_speed = 0
+	ship_accel = 0
+
+const init_dist = 10000.0
 func _ready():
-	home_distance = 10000.0
+	reset()
 	process_mode = ProcessMode.PROCESS_MODE_ALWAYS
 
+var music_intensified = false
 func _process(_delta):
-	pass
+	if music_intensified: return
+	if home_distance < init_dist/2:
+		music_intensified = true
+		intensify_music()
 
 func _physics_process(delta):
-	ship_speed += ship_accel*delta
-	home_distance = clamp(home_distance - (ship_speed * delta), -1, 1000000000000)
+	if !get_tree().paused:
+		ship_speed += ship_accel*delta*(1/ship_mass)
+		home_distance = clamp(home_distance - (ship_speed * delta), -1, 1000000000000)
 	if home_distance <= -1 and !ship_home:
 		ship_home = true
 		await fade_out()
@@ -40,7 +55,7 @@ func change_audio_bus_volume(value: float):
 	var index = AudioServer.get_bus_index("Music")
 	AudioServer.set_bus_volume_db(index, value)
 
-func swap_music():
+func intensify_music():
 	var tween = get_tree().create_tween()
 	tween.tween_method(change_audio_bus_volume, 0.0, -60.0, 2.0)
 	var collapse_of_the_core = AudioStreamOggVorbis.load_from_file("res://assets/sfx/collapse_of_the_core.ogg")
@@ -48,7 +63,7 @@ func swap_music():
 	tween.tween_method(change_audio_bus_volume, -60.0, 0.0, 2.0)
 
 func swap_audio(music_resource : AudioStreamOggVorbis):
-	print(music_resource)
+	if music_player == null: return
 	music_player.stream = music_resource
 	music_player.play()
 

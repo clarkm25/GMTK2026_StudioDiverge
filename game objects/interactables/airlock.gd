@@ -1,9 +1,9 @@
 extends Node2D
 
 @export var sprite : Sprite2D
+@export var anim : AnimationPlayer
 @export var item_slot : Marker2D
-
-var burn_time : float
+@export var audio_player : AudioStreamPlayer2D
 
 func start_shine(time : float = 1.0):
 	var tween = create_tween()
@@ -19,20 +19,21 @@ func set_shader_alpha(alpha_val):
 
 func _on_interactable_2d_closest(interactor):
 	start_shine()
-	
+	anim.queue('open')
+
 func _on_interactable_2d_not_closest(interactor):
 	stop_shine()
+	anim.queue('close')
 
 func _on_interactable_2d_interacted(interactor):
-	print("ignite")
+	print("eject")
 	var interactor_parent : CharacterBody2D = interactor.get_parent()
 	if interactor_parent.name != "Player": return
 	
-	# Activate ship burner
+	# Eject
 	var stats : PickupStats = interactor_parent.current_item_stats
 	if stats == null: return
-	Game.ship_accel = stats.acceleration_given
-	burn_time = stats.burn_time
+	Game.ship_mass -= stats.mass
 	
 	# Wipe player stat info
 	interactor_parent.current_item_stats = null
@@ -43,17 +44,14 @@ func _on_interactable_2d_interacted(interactor):
 	var item_sprite : Node2D = player_item_slot.get_child(0)
 	item_sprite.reparent(item_slot)
 	item_sprite.position = Vector2.ZERO
-	heat_up_sprite()
+	eject_sprite()
 
-func _physics_process(delta):
-	burn_time = clamp(burn_time - delta, 0, 100000000)
-	if burn_time <= 0:
-		Game.ship_accel = 0
-
-func heat_up_sprite():
+func eject_sprite():
 	var item_sprite = item_slot.get_child(0)
 	var tween = get_tree().create_tween()
-	tween.tween_property(item_slot, "modulate", Color(18.892, 3.504, 1.459), burn_time)
-	tween.tween_property($CPUParticles2D, "emitting", true, 0)
+	tween.tween_property(item_slot, "scale", Vector2.ZERO, 1)
 	tween.tween_callback(item_sprite.queue_free)
-		
+
+
+func _on_animation_player_animation_started(anim_name: StringName) -> void:
+	audio_player.play()

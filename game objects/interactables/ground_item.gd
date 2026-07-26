@@ -36,7 +36,12 @@ func _on_interactable_2d_interacted(interactor : Interactor2D):
 	print("hi")
 	var interactor_parent = interactor.get_parent()
 	if interactor_parent.name == "Player":
+		if interactor_parent.droppable_item:
+			interactor_parent.drop_item()
+		
 		var top_head := head_sprite.instantiate()
+		
 		interactor_parent.item_slot.add_child(top_head)
 		interactor_parent.current_item_stats = item_stats
+		interactor_parent.droppable_item = true
 		queue_free()

@@ -14,3 +14,4 @@ extends Resource
 @export var burn_time : float
 @export var acceleration_given : float
 @export var mass : float
+@export var scene_path : String

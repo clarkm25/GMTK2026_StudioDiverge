@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://bwk10ipc6gbl2"]
 
 [ext_resource type="Script" uid="uid://blypotl47w558" path="res://game/main.gd" id="1_v2tjf"]
+[ext_resource type="PackedScene" uid="uid://b5krjx6bv5owl" path="res://game objects/interactables/Airlock.tscn" id="2_kbr2n"]
 [ext_resource type="Texture2D" uid="uid://cywl32bw2jh1x" path="res://icon.svg" id="2_ovcs7"]
-[ext_resource type="Script" uid="uid://bc7wxvqfc11x5" path="res://game/paralax.gd" id="3_ovcs7"]
+[ext_resource type="Script" uid="uid://bc7wxvqfc11x5" path="res://game/parallax.gd" id="3_ovcs7"]
 [ext_resource type="Texture2D" uid="uid://duu8uii1w4aal" path="res://assets/paralax/nebulae_dark.png" id="4_8b68q"]
 [ext_resource type="PackedScene" uid="uid://dvvwk5i17yrcb" path="res://menus/Options.tscn" id="4_ljq5a"]
 [ext_resource type="Script" uid="uid://ig2kct7r4oee" path="res://game/debug_ui.gd" id="4_yo8gm"]
@@ -16,6 +17,11 @@
 [ext_resource type="PackedScene" uid="uid://diw88wg5nuwhr" path="res://game objects/interactables/Burner.tscn" id="12_6lgcj"]
 [ext_resource type="PackedScene" uid="uid://ctbtxij4b2f4a" path="res://menus/Hud.tscn" id="13_8b68q"]
 [ext_resource type="AudioStream" uid="uid://b8uum7dywsgeg" path="res://assets/sfx/beyond_the_star_gate.ogg" id="14_ovcs7"]
+[ext_resource type="PackedScene" uid="uid://bkrfss6kekpmc" path="res://game objects/interactables/Canister.tscn" id="17_8b68q"]
+[ext_resource type="PackedScene" uid="uid://y8fvdx3b4v6b" path="res://game objects/interactables/Television.tscn" id="18_03u2m"]
+[ext_resource type="PackedScene" uid="uid://cnm7qs76cqmak" path="res://game objects/interactables/FireExtinguisher.tscn" id="19_2vqt1"]
+[ext_resource type="PackedScene" uid="uid://bcumx40qc7xfm" path="res://game objects/interactables/Barrel.tscn" id="20_4lvxf"]
+[ext_resource type="PackedScene" uid="uid://nbt6yihiq5jv" path="res://game objects/interactables/Suitcase.tscn" id="22_m8yuc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_alqjt"]
 bg_color = Color(0.26666668, 0.26666668, 0.26666668, 0.7411765)
@@ -293,11 +299,32 @@ bus = &"Music"
 process_mode = 3
 bus = &"SFX"
 
+[node name="Airlock" parent="." unique_id=73795755 instance=ExtResource("2_kbr2n")]
+position = Vector2(0, 300)
+
 [node name="FuelTank" parent="." unique_id=727356559 instance=ExtResource("10_0btcf")]
 position = Vector2(152, 113)
 
+[node name="FuelTank2" parent="." unique_id=1547145930 instance=ExtResource("10_0btcf")]
+position = Vector2(225, 93)
+
 [node name="Burner" parent="." unique_id=64445812 instance=ExtResource("12_6lgcj")]
 position = Vector2(-129, 156)
+
+[node name="Canister" parent="." unique_id=1658685529 instance=ExtResource("17_8b68q")]
+position = Vector2(98, 118)
+
+[node name="Television" parent="." unique_id=937262723 instance=ExtResource("18_03u2m")]
+position = Vector2(135, 192)
+
+[node name="FireExtinguisher" parent="." unique_id=1431720522 instance=ExtResource("19_2vqt1")]
+position = Vector2(129, 54)
+
+[node name="Barrel" parent="." unique_id=1570572537 instance=ExtResource("20_4lvxf")]
+position = Vector2(31, 108)
+
+[node name="Suitcase" parent="." unique_id=2103207389 instance=ExtResource("22_m8yuc")]
+position = Vector2(272, 160)
 
 [connection signal="pressed" from="CanvasLayer/DebugUI/DebugButtons/DebugSpeedChange" to="CanvasLayer/DebugUI" method="_on_debug_speed_change_pressed"]
 [connection signal="pressed" from="CanvasLayer/DebugUI/DebugButtons/DebugAccelChange" to="CanvasLayer/DebugUI" method="_on_debug_accel_change_pressed"]

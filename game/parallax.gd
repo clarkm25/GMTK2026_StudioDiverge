@@ -7,10 +7,13 @@ extends Sprite2D
 const size = Vector2(500, 3000)
 
 func _physics_process(_delta: float) -> void:
+	var dist_delta: float
+	if Game.parallax_disabled:
+		dist_delta = 100 * _delta
+	else:
+		dist_delta = Game.ship_speed * _delta
 	
-	var dist = Game.home_distance
 	var speed_variance = layer*speed_offset
-	var dist_delta = clamp(Game.ship_speed * _delta, -1, 1000000000000)
 	self.position.y += speed_variance * dist_delta
 	
 	if self.position.y > size.y:

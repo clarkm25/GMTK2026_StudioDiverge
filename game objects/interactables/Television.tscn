@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://y8fvdx3b4v6b"]
+
+[ext_resource type="Script" uid="uid://dlmamkhyegy8a" path="res://game objects/interactables/ground_item.gd" id="1_ngn7a"]
+[ext_resource type="Script" uid="uid://ccwuoh41qow4t" path="res://game objects/interactables/pickup.gd" id="2_01tf6"]
+[ext_resource type="PackedScene" uid="uid://bqaw6xhti3bb2" path="res://game objects/interactables/TelevisionHead.tscn" id="2_rnep7"]
+[ext_resource type="Script" uid="uid://b11n8h556ja7" path="res://addons/interaction_system/systems/interaction/interactable/interactable_2d.gd" id="3_rnep7"]
+[ext_resource type="Material" uid="uid://bnnxf44tkxjvp" path="res://assets/shine_material.tres" id="4_ik4mi"]
+[ext_resource type="Texture2D" uid="uid://xjbxbxtekb5r" path="res://assets/spaceship_tileset/tilesets/Television.png" id="5_5xemr"]
+
+[sub_resource type="Resource" id="Resource_v4wnv"]
+script = ExtResource("2_01tf6")
+name = "Television"
+burn_time = 7.0
+acceleration_given = 4.0
+mass = 1.3
+scene_path = "res://game objects/interactables/Television.tscn"
+metadata/_custom_type_script = "uid://ccwuoh41qow4t"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_abvlt"]
+size = Vector2(51, 55)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gpitm"]
+size = Vector2(39, 17)
+
+[node name="Television" type="Node2D" unique_id=727356559 node_paths=PackedStringArray("sprite")]
+y_sort_enabled = true
+script = ExtResource("1_ngn7a")
+sprite = NodePath("Sprite2D")
+head_sprite = ExtResource("2_rnep7")
+item_stats = SubResource("Resource_v4wnv")
+
+[node name="Interactable2D" type="Area2D" parent="." unique_id=1225153443]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("3_rnep7")
+metadata/_custom_type_script = "uid://b11n8h556ja7"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable2D" unique_id=1360443931]
+position = Vector2(-1.5, -24.5)
+shape = SubResource("RectangleShape2D_abvlt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=121652414]
+material = ExtResource("4_ik4mi")
+texture = ExtResource("5_5xemr")
+offset = Vector2(1.5, -24.5)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1776431156]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1929746960]
+position = Vector2(-1.5, -10.5)
+shape = SubResource("RectangleShape2D_gpitm")
+
+[connection signal="closest" from="Interactable2D" to="." method="_on_interactable_2d_closest"]
+[connection signal="interacted" from="Interactable2D" to="." method="_on_interactable_2d_interacted"]
+[connection signal="not_closest" from="Interactable2D" to="." method="_on_interactable_2d_not_closest"]

@@ -24,6 +24,6 @@ func _fade_out() -> void:
 	await Game.fade_out()
 	match button_type:
 		'start':
-			get_tree().change_scene_to_file("res://game/Main.tscn")
+			get_tree().change_scene_to_file("res://game objects/interactables/EpilepsyWarning.tscn")
 		'quit':
 			get_tree().quit()
