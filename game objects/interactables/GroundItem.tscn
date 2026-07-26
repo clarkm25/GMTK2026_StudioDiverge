@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://ch3cwv8w2xbau"]
+
+[ext_resource type="Script" uid="uid://dlmamkhyegy8a" path="res://game objects/interactables/ground_item.gd" id="1_s6me8"]
+[ext_resource type="Script" uid="uid://ccwuoh41qow4t" path="res://game objects/interactables/pickup.gd" id="3_bktx8"]
+[ext_resource type="Script" uid="uid://b11n8h556ja7" path="res://addons/interaction_system/systems/interaction/interactable/interactable_2d.gd" id="4_0kcmt"]
+[ext_resource type="Material" uid="uid://bnnxf44tkxjvp" path="res://assets/shine_material.tres" id="5_dcb1a"]
+
+[sub_resource type="Resource" id="Resource_n65lw"]
+script = ExtResource("3_bktx8")
+metadata/_custom_type_script = "uid://ccwuoh41qow4t"
+
+[node name="GroundItem" type="Node2D" unique_id=727356559 node_paths=PackedStringArray("sprite")]
+y_sort_enabled = true
+script = ExtResource("1_s6me8")
+sprite = NodePath("Sprite2D")
+item_stats = SubResource("Resource_n65lw")
+
+[node name="Interactable2D" type="Area2D" parent="." unique_id=1225153443]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("4_0kcmt")
+metadata/_custom_type_script = "uid://b11n8h556ja7"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable2D" unique_id=1360443931]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=121652414]
+material = ExtResource("5_dcb1a")
+offset = Vector2(1.5, -24.5)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1776431156]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1929746960]
+
+[connection signal="closest" from="Interactable2D" to="." method="_on_interactable_2d_closest"]
+[connection signal="interacted" from="Interactable2D" to="." method="_on_interactable_2d_interacted"]
+[connection signal="not_closest" from="Interactable2D" to="." method="_on_interactable_2d_not_closest"]

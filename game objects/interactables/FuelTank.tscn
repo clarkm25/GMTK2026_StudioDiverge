@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://du2nhthdkn44c"]
 
-[ext_resource type="Script" uid="uid://dlmamkhyegy8a" path="res://game objects/interactables/fuel_tank.gd" id="2_kxt23"]
+[ext_resource type="Script" uid="uid://dlmamkhyegy8a" path="res://game objects/interactables/ground_item.gd" id="2_kxt23"]
 [ext_resource type="PackedScene" uid="uid://bmx7oajn0g0ex" path="res://game objects/interactables/FuelTankHead.tscn" id="2_m52vc"]
 [ext_resource type="Script" uid="uid://ccwuoh41qow4t" path="res://game objects/interactables/pickup.gd" id="3_itngf"]
 [ext_resource type="Script" uid="uid://b11n8h556ja7" path="res://addons/interaction_system/systems/interaction/interactable/interactable_2d.gd" id="3_m52vc"]
