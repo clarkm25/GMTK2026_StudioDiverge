@@ -38,7 +38,7 @@ script = ExtResource("3_ovcs7")
 
 [node name="GODot2" type="Sprite2D" parent="Space" unique_id=571467878]
 modulate = Color(0.012159991, 0.004799999, 0.06, 1)
-position = Vector2(0, -3000)
+position = Vector2(10, -3000)
 scale = Vector2(23.438, 23.438)
 texture = ExtResource("2_ovcs7")
 script = ExtResource("3_ovcs7")
