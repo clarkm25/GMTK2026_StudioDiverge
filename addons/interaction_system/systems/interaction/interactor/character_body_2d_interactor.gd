@@ -87,10 +87,12 @@ func check_area() -> void:
 	cached_closest = new_closest
 
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed(action_name):
 		if cached_raycasted and not disable_interaction_for_ray_cast:
 			interact(cached_raycasted)
+			get_viewport().set_input_as_handled()
 
 		if cached_closest and use_area_2d_to_interact and interaction_on == 1:
 			interact(cached_closest)
+			get_viewport().set_input_as_handled()

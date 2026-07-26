@@ -296,6 +296,9 @@ bus = &"SFX"
 [node name="FuelTank" parent="." unique_id=727356559 instance=ExtResource("10_0btcf")]
 position = Vector2(152, 113)
 
+[node name="FuelTank2" parent="." unique_id=1547145930 instance=ExtResource("10_0btcf")]
+position = Vector2(225, 93)
+
 [node name="Burner" parent="." unique_id=64445812 instance=ExtResource("12_6lgcj")]
 position = Vector2(-129, 156)
 
