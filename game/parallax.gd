@@ -1,7 +1,8 @@
 extends Sprite2D
 
 @export var layer = 1
-@export var speed_offset = 0.2
+@export var speed_offset = 0.1
+@export var speed_multiplyer = 50
 @onready var point_of_reference = $"../../Player" # TODO: swap player for spaceship
 
 const size = Vector2(500, 3000)
@@ -14,7 +15,7 @@ func _physics_process(_delta: float) -> void:
 		dist_delta = Game.ship_speed * _delta
 	
 	var speed_variance = layer*speed_offset
-	self.position.y += speed_variance * dist_delta
+	self.position.y += speed_variance * dist_delta * speed_multiplyer
 	
 	if self.position.y > size.y:
 		self.position.y -= size.y * 2

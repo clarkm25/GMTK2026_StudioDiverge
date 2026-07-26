@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bwk10ipc6gbl2"]
 
 [ext_resource type="Script" uid="uid://blypotl47w558" path="res://game/main.gd" id="1_v2tjf"]
-[ext_resource type="PackedScene" uid="uid://b5krjx6bv5owl" path="res://game objects/interactables/Airlock.tscn" id="2_kbr2n"]
 [ext_resource type="Texture2D" uid="uid://cywl32bw2jh1x" path="res://icon.svg" id="2_ovcs7"]
 [ext_resource type="Script" uid="uid://bc7wxvqfc11x5" path="res://game/parallax.gd" id="3_ovcs7"]
 [ext_resource type="Texture2D" uid="uid://duu8uii1w4aal" path="res://assets/paralax/nebulae_dark.png" id="4_8b68q"]
@@ -14,15 +13,14 @@
 [ext_resource type="Texture2D" uid="uid://b1ag18kkwweho" path="res://assets/paralax/stars_close.png" id="8_kbr2n"]
 [ext_resource type="Texture2D" uid="uid://2uvfnvvdpn2j" path="res://assets/paralax/planets.png" id="8_ovcs7"]
 [ext_resource type="PackedScene" uid="uid://du2nhthdkn44c" path="res://game objects/interactables/FuelTank.tscn" id="10_0btcf"]
-[ext_resource type="PackedScene" uid="uid://diw88wg5nuwhr" path="res://game objects/interactables/Burner.tscn" id="12_6lgcj"]
 [ext_resource type="PackedScene" uid="uid://ctbtxij4b2f4a" path="res://menus/Hud.tscn" id="13_8b68q"]
 [ext_resource type="AudioStream" uid="uid://b8uum7dywsgeg" path="res://assets/sfx/beyond_the_star_gate.ogg" id="14_ovcs7"]
+[ext_resource type="PackedScene" uid="uid://cb0w5bxje1nce" path="res://game objects/spaceship2.tscn" id="15_kkolr"]
 [ext_resource type="PackedScene" uid="uid://bkrfss6kekpmc" path="res://game objects/interactables/Canister.tscn" id="17_8b68q"]
 [ext_resource type="PackedScene" uid="uid://y8fvdx3b4v6b" path="res://game objects/interactables/Television.tscn" id="18_03u2m"]
 [ext_resource type="PackedScene" uid="uid://cnm7qs76cqmak" path="res://game objects/interactables/FireExtinguisher.tscn" id="19_2vqt1"]
 [ext_resource type="PackedScene" uid="uid://bcumx40qc7xfm" path="res://game objects/interactables/Barrel.tscn" id="20_4lvxf"]
 [ext_resource type="PackedScene" uid="uid://nbt6yihiq5jv" path="res://game objects/interactables/Suitcase.tscn" id="22_m8yuc"]
-[ext_resource type="PackedScene" uid="uid://bqbtcgnn7x1x1" path="res://game objects/MassDisplay.tscn" id="23_urty6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_alqjt"]
 bg_color = Color(0.26666668, 0.26666668, 0.26666668, 0.7411765)
@@ -301,35 +299,124 @@ bus = &"Music"
 process_mode = 3
 bus = &"SFX"
 
-[node name="Airlock" parent="." unique_id=73795755 instance=ExtResource("2_kbr2n")]
-position = Vector2(0, 300)
+[node name="Spaceship" parent="." unique_id=1488593352 instance=ExtResource("15_kkolr")]
 
-[node name="FuelTank" parent="." unique_id=727356559 instance=ExtResource("10_0btcf")]
-position = Vector2(152, 113)
+[node name="Items" type="Node2D" parent="." unique_id=554171137]
+y_sort_enabled = true
 
-[node name="FuelTank2" parent="." unique_id=1547145930 instance=ExtResource("10_0btcf")]
-position = Vector2(225, 93)
+[node name="FireExtinguisher4" parent="Items" unique_id=727356559 instance=ExtResource("19_2vqt1")]
+position = Vector2(301, 350)
 
-[node name="Burner" parent="." unique_id=64445812 instance=ExtResource("12_6lgcj")]
-position = Vector2(-129, 156)
+[node name="Television" parent="Items" unique_id=2064015759 instance=ExtResource("18_03u2m")]
+position = Vector2(110, 240)
 
-[node name="Canister" parent="." unique_id=1658685529 instance=ExtResource("17_8b68q")]
-position = Vector2(98, 118)
+[node name="Suitcase" parent="Items" unique_id=488857444 instance=ExtResource("22_m8yuc")]
+position = Vector2(-612, 643)
 
-[node name="Television" parent="." unique_id=937262723 instance=ExtResource("18_03u2m")]
-position = Vector2(135, 192)
+[node name="FuelTank" parent="Items" unique_id=828214499 instance=ExtResource("10_0btcf")]
+position = Vector2(160, 164)
 
-[node name="FireExtinguisher" parent="." unique_id=1431720522 instance=ExtResource("19_2vqt1")]
-position = Vector2(129, 54)
+[node name="FireExtinguisher" parent="Items" unique_id=332832443 instance=ExtResource("19_2vqt1")]
+position = Vector2(129, 112)
 
-[node name="Barrel" parent="." unique_id=1570572537 instance=ExtResource("20_4lvxf")]
-position = Vector2(31, 108)
+[node name="Canister3" parent="Items" unique_id=891990047 instance=ExtResource("17_8b68q")]
+position = Vector2(615, 1337)
 
-[node name="Suitcase" parent="." unique_id=2103207389 instance=ExtResource("22_m8yuc")]
-position = Vector2(272, 160)
+[node name="Canister2" parent="Items" unique_id=814348513 instance=ExtResource("17_8b68q")]
+position = Vector2(484, 740)
 
-[node name="MassDisplay" parent="." unique_id=1768773653 instance=ExtResource("23_urty6")]
-position = Vector2(104, -82)
+[node name="Canister" parent="Items" unique_id=1738409050 instance=ExtResource("17_8b68q")]
+position = Vector2(-321, 390)
+
+[node name="Barrel" parent="Items" unique_id=418160913 instance=ExtResource("20_4lvxf")]
+position = Vector2(-1172, 615)
+
+[node name="Barrel2" parent="Items" unique_id=738924775 instance=ExtResource("20_4lvxf")]
+position = Vector2(-1139, 700)
+
+[node name="Canister4" parent="Items" unique_id=428654882 instance=ExtResource("17_8b68q")]
+position = Vector2(-779, 838)
+
+[node name="FireExtinguisher2" parent="Items" unique_id=1179646729 instance=ExtResource("19_2vqt1")]
+position = Vector2(508, 977)
+
+[node name="FireExtinguisher3" parent="Items" unique_id=381188401 instance=ExtResource("19_2vqt1")]
+position = Vector2(-821, 638)
+
+[node name="FuelTank2" parent="Items" unique_id=1993124334 instance=ExtResource("10_0btcf")]
+position = Vector2(147, 681)
+
+[node name="FuelTank3" parent="Items" unique_id=2105599267 instance=ExtResource("10_0btcf")]
+position = Vector2(-581, 634)
+
+[node name="Suitcase2" parent="Items" unique_id=2123710656 instance=ExtResource("22_m8yuc")]
+position = Vector2(-849, 648)
+
+[node name="Suitcase3" parent="Items" unique_id=1386970805 instance=ExtResource("22_m8yuc")]
+position = Vector2(-1124, 603)
+
+[node name="Suitcase4" parent="Items" unique_id=1200920888 instance=ExtResource("22_m8yuc")]
+position = Vector2(-928, 1003)
+
+[node name="Television2" parent="Items" unique_id=2097990626 instance=ExtResource("18_03u2m")]
+position = Vector2(-256, 221)
+
+[node name="Television3" parent="Items" unique_id=291058981 instance=ExtResource("18_03u2m")]
+position = Vector2(-1081, 659)
+
+[node name="Television4" parent="Items" unique_id=1059660594 instance=ExtResource("18_03u2m")]
+position = Vector2(-1004, 992)
+
+[node name="Barrel3" parent="Items" unique_id=2018793737 instance=ExtResource("20_4lvxf")]
+position = Vector2(-809, 881)
+
+[node name="Suitcase5" parent="Items" unique_id=1092973630 instance=ExtResource("22_m8yuc")]
+position = Vector2(-941, 832)
+
+[node name="Canister5" parent="Items" unique_id=650340082 instance=ExtResource("17_8b68q")]
+position = Vector2(-909, 914)
+
+[node name="Canister6" parent="Items" unique_id=84049450 instance=ExtResource("17_8b68q")]
+position = Vector2(-972, 648)
+
+[node name="FuelTank4" parent="Items" unique_id=1121398793 instance=ExtResource("10_0btcf")]
+position = Vector2(-254, 638)
+
+[node name="FuelTank5" parent="Items" unique_id=1359181957 instance=ExtResource("10_0btcf")]
+position = Vector2(-275, 639)
+
+[node name="Canister7" parent="Items" unique_id=1196024781 instance=ExtResource("17_8b68q")]
+position = Vector2(128, 328)
+
+[node name="Canister8" parent="Items" unique_id=907343207 instance=ExtResource("17_8b68q")]
+position = Vector2(323, 388)
+
+[node name="Suitcase6" parent="Items" unique_id=1178224318 instance=ExtResource("22_m8yuc")]
+position = Vector2(167, 354)
+
+[node name="FuelTank6" parent="Items" unique_id=1552339751 instance=ExtResource("10_0btcf")]
+position = Vector2(195, 683)
+
+[node name="FuelTank7" parent="Items" unique_id=52670264 instance=ExtResource("10_0btcf")]
+position = Vector2(-255, 657)
+
+[node name="FuelTank8" parent="Items" unique_id=958456566 instance=ExtResource("10_0btcf")]
+position = Vector2(-561, 652)
+
+[node name="FuelTank9" parent="Items" unique_id=691338685 instance=ExtResource("10_0btcf")]
+position = Vector2(-879, 628)
+
+[node name="FuelTank10" parent="Items" unique_id=1767172385 instance=ExtResource("10_0btcf")]
+position = Vector2(-983, 698)
+
+[node name="FuelTank11" parent="Items" unique_id=573061586 instance=ExtResource("10_0btcf")]
+position = Vector2(-958, 698)
+
+[node name="FuelTank12" parent="Items" unique_id=247132233 instance=ExtResource("10_0btcf")]
+position = Vector2(-984, 725)
+
+[node name="FuelTank13" parent="Items" unique_id=1806130160 instance=ExtResource("10_0btcf")]
+position = Vector2(-959, 726)
 
 [connection signal="pressed" from="CanvasLayer/DebugUI/DebugButtons/DebugSpeedChange" to="CanvasLayer/DebugUI" method="_on_debug_speed_change_pressed"]
 [connection signal="pressed" from="CanvasLayer/DebugUI/DebugButtons/DebugAccelChange" to="CanvasLayer/DebugUI" method="_on_debug_accel_change_pressed"]
