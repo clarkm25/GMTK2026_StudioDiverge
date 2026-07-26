@@ -32,17 +32,6 @@ theme_override_constants/margin_bottom = 25
 layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=88578377]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
-
-[node name="Close" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer5" unique_id=2054520407]
-custom_maximum_size = Vector2(-1, 40)
-layout_mode = 2
-theme = ExtResource("2_1ownm")
-text = "Close"
-
 [node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=2101950583]
 layout_mode = 2
 alignment = 1
@@ -96,31 +85,50 @@ unique_name_in_owner = true
 layout_mode = 2
 theme = ExtResource("2_1ownm")
 
+[node name="FlashLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1361062901]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_1ownm")
+text = "Less Flashing"
+
+[node name="Flash" type="CheckBox" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1659156991]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("2_1ownm")
+
 [node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1371514994]
 layout_mode = 2
 size_flags_horizontal = 4
+
+[node name="Close" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer4" unique_id=2054520407]
+custom_maximum_size = Vector2(-1, 40)
+layout_mode = 2
+theme = ExtResource("2_1ownm")
+text = "Close"
 
 [node name="Reset" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer4" unique_id=1448490131]
 texture_filter = 1
 custom_maximum_size = Vector2(-1, 40)
 layout_mode = 2
 theme = ExtResource("2_1ownm")
-text = "Reset to Default"
+text = "Reset"
 
-[node name="HBoxContainer6" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1675620136]
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 10
-
-[node name="MainMenu" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer6" unique_id=431117195]
+[node name="MainMenu" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer4" unique_id=431117195]
 custom_maximum_size = Vector2(-1, 40)
 layout_mode = 2
+size_flags_horizontal = 8
 theme = ExtResource("2_1ownm")
 text = "Main Menu"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer5/Close" to="." method="_on_close_pressed"]
+[node name="HBoxContainer6" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1675620136]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/HBoxContainer3/Sound" to="." method="_on_sound_value_changed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/HBoxContainer/Music" to="." method="_on_music_value_changed"]
 [connection signal="toggled" from="MarginContainer/VBoxContainer/HBoxContainer2/Mute" to="." method="_on_mute_toggled"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer/HBoxContainer2/Flash" to="." method="_on_flash_toggled"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer4/Close" to="." method="_on_close_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer4/Reset" to="." method="_on_reset_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer6/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer4/MainMenu" to="." method="_on_main_menu_pressed"]

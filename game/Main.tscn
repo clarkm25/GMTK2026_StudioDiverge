@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://blypotl47w558" path="res://game/main.gd" id="1_v2tjf"]
 [ext_resource type="PackedScene" uid="uid://b5krjx6bv5owl" path="res://game objects/interactables/Airlock.tscn" id="2_kbr2n"]
 [ext_resource type="Texture2D" uid="uid://cywl32bw2jh1x" path="res://icon.svg" id="2_ovcs7"]
-[ext_resource type="Script" uid="uid://bc7wxvqfc11x5" path="res://game/paralax.gd" id="3_ovcs7"]
+[ext_resource type="Script" uid="uid://bc7wxvqfc11x5" path="res://game/parallax.gd" id="3_ovcs7"]
 [ext_resource type="Texture2D" uid="uid://duu8uii1w4aal" path="res://assets/paralax/nebulae_dark.png" id="4_8b68q"]
 [ext_resource type="PackedScene" uid="uid://dvvwk5i17yrcb" path="res://menus/Options.tscn" id="4_ljq5a"]
 [ext_resource type="Script" uid="uid://ig2kct7r4oee" path="res://game/debug_ui.gd" id="4_yo8gm"]

@@ -51,7 +51,7 @@ func _on_reset_pressed() -> void:
 	%Sound.value = 0
 	%Sound.modulate = Color(1.0, 1.0, 1.0, 1.0)
 	%Mute.button_pressed = false
-
+	%Flash.button_pressed = false
 
 func _on_close_pressed() -> void:
 	unpause()
@@ -60,3 +60,7 @@ func _on_close_pressed() -> void:
 func _on_main_menu_pressed() -> void:
 	unpause()
 	get_tree().change_scene_to_file("res://menus/Menu.tscn")
+
+
+func _on_flash_toggled(toggled_on: bool) -> void:
+	Game.parallax_disabled = true
