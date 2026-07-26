@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://diw88wg5nuwhr" path="res://game objects/interactables/Burner.tscn" id="12_6lgcj"]
 [ext_resource type="PackedScene" uid="uid://ctbtxij4b2f4a" path="res://menus/Hud.tscn" id="13_8b68q"]
 [ext_resource type="AudioStream" uid="uid://b8uum7dywsgeg" path="res://assets/sfx/beyond_the_star_gate.ogg" id="14_ovcs7"]
+[ext_resource type="PackedScene" uid="uid://b5krjx6bv5owl" path="res://game objects/interactables/Airlock.tscn" id="17_8b68q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_alqjt"]
 bg_color = Color(0.26666668, 0.26666668, 0.26666668, 0.7411765)
@@ -301,6 +302,9 @@ position = Vector2(225, 93)
 
 [node name="Burner" parent="." unique_id=64445812 instance=ExtResource("12_6lgcj")]
 position = Vector2(-129, 156)
+
+[node name="Airlock" parent="." unique_id=73795755 instance=ExtResource("17_8b68q")]
+position = Vector2(-86, 264)
 
 [connection signal="pressed" from="CanvasLayer/DebugUI/DebugButtons/DebugSpeedChange" to="CanvasLayer/DebugUI" method="_on_debug_speed_change_pressed"]
 [connection signal="pressed" from="CanvasLayer/DebugUI/DebugButtons/DebugAccelChange" to="CanvasLayer/DebugUI" method="_on_debug_accel_change_pressed"]

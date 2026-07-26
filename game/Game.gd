@@ -2,6 +2,7 @@ extends Node2D
 
 var ship_speed : float
 var ship_accel : float
+var ship_mass : float
 ## Percentage, represented as 0-1 decimal (i.e., 0.7777=77.77%)
 var ship_integrity : float:
 	get():
@@ -22,13 +23,14 @@ var music_player : AudioStreamPlayer
 
 func _ready():
 	home_distance = 10000.0
+	ship_mass = 10
 	process_mode = ProcessMode.PROCESS_MODE_ALWAYS
 
 func _process(_delta):
 	pass
 
 func _physics_process(delta):
-	ship_speed += ship_accel*delta
+	ship_speed += ship_accel*delta*(1/ship_mass)
 	home_distance = clamp(home_distance - (ship_speed * delta), -1, 1000000000000)
 	if home_distance <= -1 and !ship_home:
 		ship_home = true
