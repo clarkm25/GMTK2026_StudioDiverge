@@ -13,22 +13,26 @@ var idle_dir = Vector2.DOWN
 func _ready():
 	pass
 
-func _process(_delta: float) -> void:
-	if (Input.is_action_just_pressed('interact')):
-		if current_item_stats == null: return
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed('interact'):
+		if current_item_stats == null: 
+			print("Null item stats")
+			return
+		
+		get_viewport().set_input_as_handled()
 		
 		var item_scene = load(current_item_stats.scene_path)
 		var item_instance = item_scene.instantiate()
 		
-		if interaction_area.get_overlapping_bodies().size() > 0: # ground_item nearby
-			var ground_item = interaction_area.get_overlapping_bodies()[0]
-			item_instance.position = ground_item.position
-		else: # no ground_item nearby
-			item_instance.position = self.position + Vector2(0, 1) # TODO: collides with player
+		item_instance.position = self.position + Vector2(0, 1) # TODO: collides with player
+		item_instance.item_stats = current_item_stats
 		
-		# TODO: MUST PICK UP GROUND_ITEM NOW: after getting the ground_item's data, and before dropping a new item to the ground.
+		current_item_stats = null
+		var held_item = item_slot.get_child(0)
+		held_item.queue_free()
 		
 		get_tree().current_scene.add_child(item_instance)
+		
 
 func _physics_process(_delta):
 	var direction = Input.get_vector("move_left","move_right","move_up", "move_down")
