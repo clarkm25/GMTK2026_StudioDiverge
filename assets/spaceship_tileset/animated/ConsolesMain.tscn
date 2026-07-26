@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://j5whv8av2itt"]
+
+[ext_resource type="Texture2D" uid="uid://bbh71seuay422" path="res://assets/spaceship_tileset/animated/!$Consoles_main.png" id="1_fmyhy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdmmd"]
+atlas = ExtResource("1_fmyhy")
+region = Rect2(0, 288, 144, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ia8o"]
+atlas = ExtResource("1_fmyhy")
+region = Rect2(144, 288, 144, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pspxd"]
+atlas = ExtResource("1_fmyhy")
+region = Rect2(288, 288, 144, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st4n8"]
+atlas = ExtResource("1_fmyhy")
+region = Rect2(0, 192, 144, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tb101"]
+atlas = ExtResource("1_fmyhy")
+region = Rect2(144, 192, 144, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uu7w4"]
+atlas = ExtResource("1_fmyhy")
+region = Rect2(288, 192, 144, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cw54y"]
+atlas = ExtResource("1_fmyhy")
+region = Rect2(0, 0, 144, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_653tm"]
+atlas = ExtResource("1_fmyhy")
+region = Rect2(144, 0, 144, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdyjw"]
+atlas = ExtResource("1_fmyhy")
+region = Rect2(288, 0, 144, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7px4p"]
+atlas = ExtResource("1_fmyhy")
+region = Rect2(0, 96, 144, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxk4x"]
+atlas = ExtResource("1_fmyhy")
+region = Rect2(144, 96, 144, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1slve"]
+atlas = ExtResource("1_fmyhy")
+region = Rect2(288, 96, 144, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wc1yl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdmmd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ia8o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pspxd")
+}],
+"loop": 1,
+"name": &"blank",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_st4n8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tb101")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uu7w4")
+}],
+"loop": 1,
+"name": &"blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cw54y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_653tm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdyjw")
+}],
+"loop": 1,
+"name": &"green",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7px4p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vxk4x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1slve")
+}],
+"loop": 1,
+"name": &"red",
+"speed": 5.0
+}]
+
+[node name="ConsolesMain" type="AnimatedSprite2D" unique_id=1773392425]
+sprite_frames = SubResource("SpriteFrames_wc1yl")
+animation = &"blank"
+frame_progress = 0.9576994
+offset = Vector2(0, -48)

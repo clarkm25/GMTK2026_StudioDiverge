@@ -1,0 +1,13 @@
+[gd_resource type="AnimatedTexture" format=3 uid="uid://xuk6kehj5w8c"]
+
+[ext_resource type="Texture2D" uid="uid://cw24yyv6ca3ue" path="res://assets/spaceship_tileset/animated/!$Consoles_main/!$Consoles_main-0.png" id="1_8p74s"]
+[ext_resource type="Texture2D" uid="uid://danji4pmfuv2u" path="res://assets/spaceship_tileset/animated/!$Consoles_main/!$Consoles_main-1.png" id="2_cints"]
+[ext_resource type="Texture2D" uid="uid://da6c5tyvj6lvy" path="res://assets/spaceship_tileset/animated/!$Consoles_main/!$Consoles_main-2.png" id="3_0blw7"]
+
+[resource]
+frames = 3
+frame_0/texture = ExtResource("1_8p74s")
+frame_1/texture = ExtResource("2_cints")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_0blw7")
+frame_2/duration = 1.0

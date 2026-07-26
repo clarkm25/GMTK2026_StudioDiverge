@@ -1,0 +1,13 @@
+[gd_resource type="AnimatedTexture" format=3 uid="uid://dlwlvlxamosh4"]
+
+[ext_resource type="Texture2D" uid="uid://dblclbksaqutm" path="res://assets/spaceship_tileset/animated/!$Light_Sidewall/!$Light_Sidewall-3.png" id="1_h4nm2"]
+[ext_resource type="Texture2D" uid="uid://bm3rqfx7ewx2c" path="res://assets/spaceship_tileset/animated/!$Light_Sidewall/!$Light_Sidewall-4.png" id="2_o0vpx"]
+[ext_resource type="Texture2D" uid="uid://d0obrl0i855fg" path="res://assets/spaceship_tileset/animated/!$Light_Sidewall/!$Light_Sidewall-5.png" id="3_v6tnp"]
+
+[resource]
+frames = 3
+frame_0/texture = ExtResource("1_h4nm2")
+frame_1/texture = ExtResource("2_o0vpx")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_v6tnp")
+frame_2/duration = 1.0

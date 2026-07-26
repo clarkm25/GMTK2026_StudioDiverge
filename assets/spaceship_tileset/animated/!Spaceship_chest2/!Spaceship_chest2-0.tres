@@ -1,0 +1,13 @@
+[gd_resource type="AnimatedTexture" format=3 uid="uid://bh5wtg2ofpc5a"]
+
+[ext_resource type="Texture2D" uid="uid://dmmu3cqywyjrv" path="res://assets/spaceship_tileset/animated/!Spaceship_chest2/!Spaceship_chest2-0.png" id="1_c414w"]
+[ext_resource type="Texture2D" uid="uid://hxkv31ei5t0x" path="res://assets/spaceship_tileset/animated/!Spaceship_chest2/!Spaceship_chest2-1.png" id="2_xud12"]
+[ext_resource type="Texture2D" uid="uid://db63huml85u8g" path="res://assets/spaceship_tileset/animated/!Spaceship_chest2/!Spaceship_chest2-2.png" id="3_64744"]
+
+[resource]
+frames = 3
+frame_0/texture = ExtResource("1_c414w")
+frame_1/texture = ExtResource("2_xud12")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_64744")
+frame_2/duration = 1.0

@@ -29,10 +29,11 @@ window/size/viewport_width=640
 window/size/viewport_height=360
 window/subwindows/embed_subwindows=false
 window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/interaction_system/plugin.cfg")
+enabled=PackedStringArray("res://addons/animated_texture_maker/plugin.cfg", "res://addons/interaction_system/plugin.cfg")
 
 [file_customization]
 
@@ -43,6 +44,10 @@ folder_colors={
 "res://game/": "green",
 "res://menus/": "yellow"
 }
+
+[global_group]
+
+StairChecker=""
 
 [input]
 

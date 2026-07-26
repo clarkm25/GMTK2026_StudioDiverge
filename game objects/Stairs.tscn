@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://ct3evdwxuo12i"]
+
+[ext_resource type="Script" uid="uid://byd0lfa6fyomi" path="res://game objects/stairs.gd" id="1_nm4bu"]
+[ext_resource type="Texture2D" uid="uid://dbs4w7httehgf" path="res://assets/spaceship_tileset/tilesets/smallstairs.png" id="2_suy6c"]
+
+[node name="Stairs" type="Node2D" unique_id=784867135]
+script = ExtResource("1_nm4bu")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1825098202]
+position = Vector2(24, -48)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=223457776]
+polygon = PackedVector2Array(24, -43, 16, -43, 16, -35, 8, -35, 8, -28, 0, -28, 0, -20, -8, -20, -8, -12, -16, -12, -16, -4, -24, -4, -24, 48, -23, 48, -23, 43, -15, 43, -15, 35, -7, 35, -7, 27, 1, 27, 1, 19, 9, 19, 9, 12, 17, 12, 17, 4, 24, 4)
+
+[node name="Smallstairs" type="Sprite2D" parent="." unique_id=59829678 groups=["stairs"]]
+position = Vector2(24, -48)
+texture = ExtResource("2_suy6c")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

@@ -1,0 +1,13 @@
+[gd_resource type="AnimatedTexture" format=3 uid="uid://xp7gysj7e2wb"]
+
+[ext_resource type="Texture2D" uid="uid://bayldf81buik6" path="res://assets/spaceship_tileset/animated/!Spaceship_decoration_signs/!Spaceship_decoration_signs-6.png" id="1_7j4ct"]
+[ext_resource type="Texture2D" uid="uid://b704326bccroa" path="res://assets/spaceship_tileset/animated/!Spaceship_decoration_signs/!Spaceship_decoration_signs-7.png" id="2_kjwdg"]
+[ext_resource type="Texture2D" uid="uid://bc4ftsp6tc8cl" path="res://assets/spaceship_tileset/animated/!Spaceship_decoration_signs/!Spaceship_decoration_signs-8.png" id="3_3o22w"]
+
+[resource]
+frames = 3
+frame_0/texture = ExtResource("1_7j4ct")
+frame_1/texture = ExtResource("2_kjwdg")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_3o22w")
+frame_2/duration = 1.0

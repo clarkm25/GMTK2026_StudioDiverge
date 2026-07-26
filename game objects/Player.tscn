@@ -360,6 +360,9 @@ _data = {
 &"walk_up": SubResource("Animation_gqib2")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_suy6c"]
+radius = 3.0
+
 [node name="Player" type="CharacterBody2D" unique_id=325630486 node_paths=PackedStringArray("item_slot", "animation_player")]
 y_sort_enabled = true
 script = ExtResource("1_5j3po")
@@ -411,3 +414,8 @@ gizmo_extents = 3.0
 [node name="PickupSound" type="AudioStreamPlayer2D" parent="." unique_id=1092695126]
 
 [node name="DropSound" type="AudioStreamPlayer2D" parent="." unique_id=27233299]
+
+[node name="StairChecker" type="Area2D" parent="." unique_id=223235754 groups=["StairChecker"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StairChecker" unique_id=766802383]
+shape = SubResource("CircleShape2D_suy6c")
