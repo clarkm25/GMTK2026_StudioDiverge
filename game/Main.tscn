@@ -194,6 +194,7 @@ layer = 5
 [node name="Hud" parent="CanvasLayer" unique_id=1916421565 instance=ExtResource("13_8b68q")]
 
 [node name="DebugUI" type="GridContainer" parent="CanvasLayer" unique_id=1710444227]
+visible = false
 offset_left = 22.0
 offset_top = 8.0
 offset_right = 617.0
