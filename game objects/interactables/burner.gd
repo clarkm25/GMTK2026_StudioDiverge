@@ -37,6 +37,7 @@ func _on_interactable_2d_interacted(interactor):
 	
 	# Wipe player stat info
 	interactor_parent.current_item_stats = null
+	interactor_parent.droppable_item = false
 	
 	# Steal hat
 	var player_item_slot : Marker2D = interactor_parent.item_slot

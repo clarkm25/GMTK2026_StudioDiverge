@@ -7,6 +7,7 @@ extends CharacterBody2D
 
 var current_item_stats : PickupStats
 var idle_dir = Vector2.DOWN
+var droppable_item = false
 
 @export var interaction_area : Area2D
 
@@ -21,18 +22,22 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 		get_viewport().set_input_as_handled()
 		
-		var item_scene = load(current_item_stats.scene_path)
-		var item_instance = item_scene.instantiate()
+		drop_item()
+
+func drop_item():
+	var item_scene = load(current_item_stats.scene_path)
+	var item_instance = item_scene.instantiate()
 		
-		item_instance.position = self.position + Vector2(0, 1) # TODO: collides with player
-		item_instance.item_stats = current_item_stats
+	item_instance.position = self.position + Vector2(0, 1) # TODO: collides with player
+	item_instance.item_stats = current_item_stats
 		
-		current_item_stats = null
-		var held_item = item_slot.get_child(0)
-		held_item.queue_free()
-		
-		get_tree().current_scene.add_child(item_instance)
-		
+	var held_item = item_slot.get_child(0)
+	held_item.queue_free()
+	current_item_stats = null
+	
+	droppable_item = false
+	
+	get_tree().current_scene.add_child(item_instance)
 
 func _physics_process(_delta):
 	var direction = Input.get_vector("move_left","move_right","move_up", "move_down")
