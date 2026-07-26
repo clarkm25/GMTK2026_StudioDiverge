@@ -8,8 +8,27 @@ extends CharacterBody2D
 var current_item_stats : PickupStats
 var idle_dir = Vector2.DOWN
 
+@export var interaction_area : Area2D
+
 func _ready():
 	pass
+
+func _process(_delta: float) -> void:
+	if (Input.is_action_just_pressed('interact')):
+		if current_item_stats == null: return
+		
+		var item_scene = load(current_item_stats.scene_path)
+		var item_instance = item_scene.instantiate()
+		
+		if interaction_area.get_overlapping_bodies().size() > 0: # ground_item nearby
+			var ground_item = interaction_area.get_overlapping_bodies()[0]
+			item_instance.position = ground_item.position
+		else: # no ground_item nearby
+			item_instance.position = self.position + Vector2(0, 1) # TODO: collides with player
+		
+		# TODO: MUST PICK UP GROUND_ITEM NOW: after getting the ground_item's data, and before dropping a new item to the ground.
+		
+		get_tree().current_scene.add_child(item_instance)
 
 func _physics_process(_delta):
 	var direction = Input.get_vector("move_left","move_right","move_up", "move_down")
