@@ -42,8 +42,9 @@ func _process(_delta):
 		intensify_music()
 
 func _physics_process(delta):
-	ship_speed += ship_accel*delta*(1/ship_mass)
-	home_distance = clamp(home_distance - (ship_speed * delta), -1, 1000000000000)
+	if !get_tree().paused:
+		ship_speed += ship_accel*delta*(1/ship_mass)
+		home_distance = clamp(home_distance - (ship_speed * delta), -1, 1000000000000)
 	if home_distance <= -1 and !ship_home:
 		ship_home = true
 		await fade_out()
@@ -62,7 +63,7 @@ func intensify_music():
 	tween.tween_method(change_audio_bus_volume, -60.0, 0.0, 2.0)
 
 func swap_audio(music_resource : AudioStreamOggVorbis):
-	print(music_resource)
+	if music_player == null: return
 	music_player.stream = music_resource
 	music_player.play()
 

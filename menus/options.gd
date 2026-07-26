@@ -63,4 +63,4 @@ func _on_main_menu_pressed() -> void:
 
 
 func _on_flash_toggled(toggled_on: bool) -> void:
-	Game.parallax_disabled = true
+	Game.parallax_disabled = toggled_on
