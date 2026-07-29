@@ -51,7 +51,7 @@ func eject_sprite():
 	var tween = get_tree().create_tween()
 	tween.tween_property(item_slot, "scale", Vector2.ZERO, 1)
 	tween.tween_callback(item_sprite.queue_free)
-	tween.tween_property(item_slot, "scale", Vector2(1, 1), 0)
+	item_slot.scale = Vector2(1, 1)
 
 func _on_animation_player_animation_started(anim_name: StringName) -> void:
 	audio_player.play()

@@ -3,7 +3,6 @@ extends Sprite2D
 @export var layer = 1
 @export var speed_offset = 0.1
 @export var speed_multiplyer = 50
-@onready var point_of_reference = $"../../Player" # TODO: swap player for spaceship
 
 const size = Vector2(500, 3000)
 
